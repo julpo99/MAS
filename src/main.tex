@@ -1,0 +1,81 @@
+%! Author = julianramondo
+%! Date = 09/11/2023
+
+% Preamble
+\documentclass[11pt]{article}
+\title{Homework Assignment 1}
+
+% Packages
+\usepackage{amsmath}
+\usepackage{multirow}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.12}
+
+
+% Document
+\begin{document}
+    \maketitle
+
+
+    \section{Game Theory: Optimality Concepts and Nash Equilibrium}
+
+    \subsection{Odd or even game}
+
+    \subsubsection{Answer 1:}
+    Payoff matrix:
+% Please add the following required packages to your document preamble:
+    \begin{table}[h]
+    \begin{tabular}{llllll}
+                       &                        & \multicolumn{2}{c}{B}                                 &  &  \\
+                       &                        & \multicolumn{1}{c}{1}     & 2                         &  &  \\ \cline{3-4}
+    \multirow{2}{*}{A} & \multicolumn{1}{r|}{1} & \multicolumn{1}{l|}{-2, 2} & \multicolumn{1}{l|}{3, -3} &  &  \\ \cline{3-4}
+                       & \multicolumn{1}{l|}{2} & \multicolumn{1}{l|}{3, -3} & \multicolumn{1}{l|}{-4, 4} &  &  \\ \cline{3-4}
+                       &                        &                           &                           &  &
+    \end{tabular}
+    \end{table}
+    \subsection{Answer 2:}
+    Regret minimisation strategies in terms of pure strategies:
+    \begin{table}[h]
+    \begin{tabular}{llllll}
+                       &                        & \multicolumn{2}{c}{B}                                                                                                                             &  &  \\
+                       &                        & \multicolumn{1}{c}{1}                                                   & 2                                                                       &  &  \\ \cline{3-4}
+    \multirow{2}{*}{A} & \multicolumn{1}{r|}{1} & \multicolumn{1}{l|}{\begin{tabular}[c]{@{}l@{}}5 0\end{tabular}} & \multicolumn{1}{l|}{\begin{tabular}[c]{@{}l@{}}0 5\end{tabular}} &  &  \\ \cline{3-4}
+                       & \multicolumn{1}{l|}{2} & \multicolumn{1}{l|}{\begin{tabular}[c]{@{}l@{}}0 7\end{tabular}} & \multicolumn{1}{l|}{\begin{tabular}[c]{@{}l@{}}7 0\end{tabular}} &  &  \\ \cline{3-4}
+                       &                        &                                                                         &                                                                         &  &
+    \end{tabular}
+    \end{table}
+    \subsection{Answer 3:}
+    Regret minimisation strategies in terms of mixed strategies:
+    \begin{figure}[h]
+    \begin{tikzpicture}[>=latex]
+        \centering
+        \begin{axis}
+            [
+            axis x line=center,
+            axis y line=center,
+            width={\linewidth},
+            ytick={1,2,...,7},
+            xtick={0.1,0.2,...,1},
+            xlabel={$p$},
+            ylabel={$R_A$},
+            xlabel style={below right},
+            ylabel style={above left},
+            xmin=0,
+            xmax=1.1,
+            ymin=0,
+            ymax=8,
+            domain=0:1]
+            \addplot+[mark=] {5*x};
+            \addplot+[mark=] {7-7*x)};
+            \node[red,scale=6] at (axis cs:7/12,35/12) {.};
+            \draw[red, dashed] (axis cs:7/12,35/12) -- (axis cs:7/12,0);
+            \node[above right, red] at (axis cs:7/12,0) {$\cfrac{7}{12}$};
+
+
+
+        \end{axis}
+
+    \end{tikzpicture}
+    \end{figure}
+    \subsection{Answer 4:}
+\end{document}
