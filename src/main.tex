@@ -9,6 +9,7 @@
 \usepackage{amsmath}
 \usepackage{multirow}
 \usepackage{pgfplots}
+\usepackage[colorinlistoftodos]{todonotes}
 \pgfplotsset{compat=1.12}
 
 
@@ -25,31 +26,71 @@
     Payoff matrix:
 % Please add the following required packages to your document preamble:
     \begin{table}[h]
-    \centering
-    \begin{tabular}{llllll}
-                       &                        & \multicolumn{2}{c}{B}                                 &  &  \\
-                       &                        & \multicolumn{1}{c}{1}     & 2                         &  &  \\ \cline{3-4}
-    \multirow{2}{*}{A} & \multicolumn{1}{r|}{1} & \multicolumn{1}{l|}{-2, 2} & \multicolumn{1}{l|}{3, -3} &  &  \\ \cline{3-4}
-                       & \multicolumn{1}{l|}{2} & \multicolumn{1}{l|}{3, -3} & \multicolumn{1}{l|}{-4, 4} &  &  \\ \cline{3-4}
-                       &                        &                           &                           &  &
-    \end{tabular}
+        \centering
+        \begin{tabular}{llllll}
+            & & \multicolumn{2}{c}{B} & & \\
+            &                        & \multicolumn{1}{c}{1}      & 2                          & & \\ \cline{3-4}
+            \multirow{2}{*}{A} & \multicolumn{1}{r|}{1} & \multicolumn{1}{l|}{-2, 2} & \multicolumn{1}{l|}{3, -3} &  &  \\ \cline{3-4}
+            & \multicolumn{1}{l|}{2} & \multicolumn{1}{l|}{3, -3} & \multicolumn{1}{l|}{-4, 4} & & \\ \cline{3-4}
+            &                        &                            &                            & &
+        \end{tabular}
     \end{table}
-    \subsection{Answer 2:}
-    Regret minimisation strategies in terms of pure strategies:
+
+    \subsubsection{Answer 2:}
+    Regret minimisation strategies in terms of \textbf{pure} strategies:
     \begin{table}[h]
-    \centering
-    \begin{tabular}{llllll}
-                       &                        & \multicolumn{2}{c}{B}                                                                                                                             &  &  \\
-                       &                        & \multicolumn{1}{c}{1}                                                   & 2                                                                       &  &  \\ \cline{3-4}
-    \multirow{2}{*}{A} & \multicolumn{1}{r|}{1} & \multicolumn{1}{l|}{\begin{tabular}[c]{@{}l@{}}5 0\end{tabular}} & \multicolumn{1}{l|}{\begin{tabular}[c]{@{}l@{}}0 5\end{tabular}} &  &  \\ \cline{3-4}
-                       & \multicolumn{1}{l|}{2} & \multicolumn{1}{l|}{\begin{tabular}[c]{@{}l@{}}0 7\end{tabular}} & \multicolumn{1}{l|}{\begin{tabular}[c]{@{}l@{}}7 0\end{tabular}} &  &  \\ \cline{3-4}
-                       &                        &                                                                         &                                                                         &  &
-    \end{tabular}
+        \centering
+        \begin{tabular}{llllll}
+            & & \multicolumn{2}{c}{B} & & \\
+            & & \multicolumn{1}{c}{1} & 2 & & \\ \cline{3-4}
+            \multirow{2}{*}{A} & \multicolumn{1}{r|}{1} & \multicolumn{1}{l|}{\begin{tabular}[c]{@{}l@{}}
+                                                                                  5 0
+            \end{tabular}} & \multicolumn{1}{l|}{\begin{tabular}[c]{@{}l@{}}
+                                                     0 5
+            \end{tabular}} &  & \rightarrow \textcolor{red}{\fbox{5}}\\ \cline{3-4}
+            & \multicolumn{1}{l|}{2} & \multicolumn{1}{l|}{\begin{tabular}[c]{@{}l@{}}
+                                                               0 7
+            \end{tabular}} & \multicolumn{1}{l|}{\begin{tabular}[c]{@{}l@{}}
+                                                     7 0
+            \end{tabular}} &  & \rightarrow \textcolor{red}{7}\\ \cline{3-4}
+            & & \downarrow & \downarrow & &
+            & & & \textcolor{red}{7} & \textcolor{red}{\fbox{5}} &
+        \end{tabular}
     \end{table}
-    \subsection{Answer 3:}
-    Regret minimisation strategies in terms of mixed strategies:
-    \begin{figure}[h]
-    \begin{tikzpicture}[>=latex]
+
+    Player A should play 1.
+
+    Player B should play 2.
+
+    \subsubsection{Answer 3:}
+    Regret minimisation strategies in terms of \textbf{mixed} strategies:
+
+    \begin{table}[h]
+        \centering
+        \begin{tabular}{lllllll}
+            & & \multicolumn{2}{c}{B} & & & \\
+            & & \multicolumn{1}{c}{\textcolor{blue}{q}}   & \textcolor{blue}{1-q}                      &                      & & \\ \cline{3-5}
+            \multirow{2}{*}{A} & \multicolumn{1}{r|}{\textcolor{red}{p}} & \multicolumn{1}{l|}{\begin{tabular}[c]{@{}l@{}}
+                                                                                                   5 0
+            \end{tabular}} & \multicolumn{1}{l|}{\begin{tabular}[c]{@{}l@{}}
+                                                     0 5
+            \end{tabular}} & \multicolumn{1}{l|}{\begin{tabular}[c]{@{}l@{}}
+                                                     \textcolor{blue}{5-5q}
+            \end{tabular}} & & \\ \cline{3-5}
+            & \multicolumn{1}{l|}{\textcolor{red}{1-p}} & \multicolumn{1}{l|}{\begin{tabular}[c]{@{}l@{}}
+                                                                                  0 7
+            \end{tabular}} & \multicolumn{1}{l|}{\begin{tabular}[c]{@{}l@{}}
+                                                     7 0
+            \end{tabular}} & \multicolumn{1}{l|}{\begin{tabular}[c]{@{}l@{}}
+                                                     \textcolor{blue}{7q}
+            \end{tabular}} & & \\ \cline{3-5}
+            & & \multicolumn{1}{|l|}{\textcolor{red}{5p}} & \multicolumn{1}{l|}{\textcolor{red}{7-7p}} & \multicolumn{1}{l}{} & & \\ \cline{3-4}
+            & &                                           &                                            &                      & &
+        \end{tabular}
+    \end{table}
+
+
+    \begin{tikzpicture}[>=latex][h]
         \centering
         \begin{axis}
             [
@@ -73,102 +114,277 @@
             \draw[red, dashed] (axis cs:7/12,35/12) -- (axis cs:7/12,0);
             \node[above right, red] at (axis cs:7/12,0) {$\cfrac{7}{12}$};
         \end{axis}
+        \node [anchor=north] at (0,0) {$O$};
     \end{tikzpicture}
-    \end{figure}
 
-    \subsection{Answer 4:}
-
-\section{1.3}
-\subsection*{1.3.1}
-Utility is given by:
-\begin{equation}
-    \begin{split}
-        u_i(q_1,q_2)&=(\alpha -\beta(q_1+q_2) - c_i)*q_i\\
-                    &=\alpha*q_i -\beta*q_1^2 -\beta*q_2*q_1 - c_i*q_2
-    \end{split}        
-\end{equation}
-where either $q_1$ or $q_2$ is fixed and $\alpha, \beta>0$.
-Lets say company $1$ has to respond to company $2$, then the maximum profit is given by the maximum utility.
-\begin{align}
-    & \cfrac{\partial u_1}{\partial q_1}=\alpha - 2\beta*q_1 - \beta*q_2 - c_1\\
-    & \cfrac{\cfrac{\partial u_1}{\partial q_1}}{\partial q_1}=-2\beta
-\end{align}
-Where we get the maximum by calculating the x-axis intersection of the derivative (while making sure it is a maximum by
-looking at the second derivative)
-\begin{align}
-    &\cfrac{\partial u_1}{\partial q_1}=0 \leftrightarrow \alpha - 2\beta*q_1 - \beta*q_2 - c_1=0\\
-    & q_1 = \cfrac{-\alpha+\beta*q_2 + c_1}{-2\beta}
-    \label{eqn:max_q_1}
-\end{align}
-The value seen in equation~\ref{eqn:max_q_1} is therefore the best response of company one if company two already
-given their quantity. Similarly the best result for company two ($q_2$) can be derived:
-\begin{equation*}
-    q_2 = \cfrac{-\alpha+\beta*q_1 + c_1}{-2\beta}
-\end{equation*}
-\subsection*{1.3.2}
-In an infinite game, the two best responses will change for each company until they join in an Equilibrium. The actual values
-will be dependent on the constant parameters $\alpha, \beta, c_1,$ and $c_2$.
-\begin{figure}[h]
-    \begin{tikzpicture}[>=latex]
+    \begin{tikzpicture}[>=latex][h]
         \centering
         \begin{axis}
             [
             axis x line=center,
             axis y line=center,
             width={\linewidth},
-            ytick={},
-            xtick={},
-            xlabel={$q_2$},
-            ylabel={$q_1$},
+            ytick={1,2,...,5},
+            xtick={0.1,0.2,...,1},
+            xlabel={$q$},
+            ylabel={$R_B$},
             xlabel style={below right},
             ylabel style={above left},
             xmin=0,
-            xmax=6,
+            xmax=1.1,
             ymin=0,
             ymax=6,
-            domain=0:6]
-            \addplot+[mark=] {-2*x+5};
-            \addplot+[mark=] {-0.5*x+2.5};
-            \node[red,scale=4] at (axis cs:5/3,5/3) {.};
-            \node[above right, red] at (axis cs:5/3,5/3) {Nash Equilibrium};
+            domain=0:1]
+            \addplot+[mark=] {7*x};
+            \addplot+[mark=] {5-5*x)};
+            \node[red,scale=6] at (axis cs:5/12,35/12) {.};
+            \draw[red, dashed] (axis cs:5/12,35/12) -- (axis cs:5/12,0);
+            \node[above right, red] at (axis cs:5/12,0) {$\cfrac{5}{12}$};
         \end{axis}
-    \end{tikzpicture}
-    \caption{Illustration of the quantities each company will produce. Notice that the lines are similar only on different axis,
-    which is only the case if they have the same production cost $c_i$.}
-    \end{figure}
-\section*{1.4}
-\subsection*{1.4.1}
-We can give the utility as the area that Charlize will serve (equation~\ref{eqn:utility_c})
-\begin{align}
-    \begin{split}
-        u_c(a, b)&=(c+((b-c)/2)) - (c+(a-c)/2)\\
-        & = 0.5b - 0.5c - 0.5a + 0.5c\\
-        & = (b-a)/2
-    \end{split}
-    \label{eqn:utility_c}    
-\end{align}
-Therefore, the area Charlize will cover is maximized as long as she choses her position between Alice and Bob.
-\subsection*{1.4.2}
-We can make a case distinction. The area we get between Alice and Bob will be exactly half of the area between them.
-Once the area that is available to us if we would go in-between Alice and Bob becomes smaller than the area to the right of
-Bob, we just go to the right of Bob. Otherwise we stay in the middle.
-\begin{equation}
-    BR_c(a,b)=\left\{
-    \begin{array}{lll}
-        &\text{directly right of b } &\mbox{if } \frac{(b-a)}{2}\leq(1-b)\\
-        &\mbox{between a and b}      &\text{otherwise}
-    \end{array}
-    \right.
-\end{equation}
-\subsection*{1.4.3}
-We want to maximize our expected utility (served area) considering that one more seller (Charlize) will also come and maximize
-her expected utility. For this, we need a position in which Charlize will move between us an Alice and the area between us and
-Alice is minimized. This is exactly the case (see above), when the following condition is true:
-\begin{equation}
-    1-b = (b-a)/2
-\end{equation}
-Therefore, Bob will position himself exactly at $0,7$ to maximize his utility while considering that Charlize will still show up.
+        \node [anchor=north] at (0,0) {$O$};
 
-\subsection*{1.4.4}
-She should set up her place exactly at $\cfrac{1}{4}$ or $\cfrac{3}{4}$ (because of symmetry).
+    \end{tikzpicture}
+    \todo[inline]{Add a couple of sentences to explain the results of the graphs.}
+
+    \subsubsection{Answer 4:}
+    Safety strategies for each player in terms of \textbf{pure} strategies:
+
+    \begin{table}[h]
+        \centering
+        \begin{tabular}{llllll}
+            & & \multicolumn{2}{c}{B} & & \\
+            & & \multicolumn{1}{c}{1} & 2 & & \\ \cline{3-4}
+            \multirow{2}{*}{A} & \multicolumn{1}{r|}{1} & \multicolumn{1}{l|}{\begin{tabular}[c]{@{}l@{}}
+                                                                                  -2, 2
+            \end{tabular}} & \multicolumn{1}{l|}{\begin{tabular}[c]{@{}l@{}}
+                                                     3, -3
+            \end{tabular}} &  & \rightarrow \textcolor{red}{\fbox{-2} \hspace{0.2cm}\textbf{MAX}}\\ \cline{3-4}
+            & \multicolumn{1}{l|}{2} & \multicolumn{1}{l|}{\begin{tabular}[c]{@{}l@{}}
+                                                               3, -3
+            \end{tabular}} & \multicolumn{1}{l|}{\begin{tabular}[c]{@{}l@{}}
+                                                     -4, 4
+            \end{tabular}} &  & \rightarrow \textcolor{red}{-4}\\ \cline{3-4}
+            & & \downarrow & \downarrow & &
+            & & & \textcolor{red}{\fbox{-3}} & \textcolor{red}{\fbox{-3}} &
+            & & & & \textcolor{red}{MAX} & \textcolor{red}{MAX}
+        \end{tabular}
+    \end{table}
+
+
+    We can arbitrarily choose between strategy 1 and 2 for player B, since they are both equally good.
+
+    \begin{minipage}{0.1\textwidth}
+        \begin{align*}
+            v_A^{MAMI} &= -2\\
+            v_A^{MAMI} &= 1
+        \end{align*}
+    \end{minipage}
+    \begin{minipage}{0.4\textwidth}
+        \begin{align*}
+            v_B^{MAMI} &= 1\\
+            s_B^{MAMI} &= 1 \textit{ or } 2
+        \end{align*}
+    \end{minipage}
+    \begin{minipage}{0.6\textwidth}
+        \begin{align*}
+            u_A(1, 1) &= -2 &\textit{   or   } u_A(1, 2) &= 3\\
+            u_B(1, 1) &= 2  &\textit{   or   } u_B(1, 2) &= -3
+        \end{align*}
+    \end{minipage}
+
+
+    \subsubsection{Answer 5:}
+
+    Safety strategies for each player in terms of \textbf{mixed} strategies:
+
+    \begin{table}[h]
+        \centering
+        \begin{tabular}{lllllll}
+            & & \multicolumn{2}{c}{B} & & & \\
+            & & \multicolumn{1}{c}{\textcolor{blue}{q}}   & \textcolor{blue}{1-q}                      &                      & & \\ \cline{3-5}
+            \multirow{2}{*}{A} & \multicolumn{1}{r|}{\textcolor{red}{p}} & \multicolumn{1}{l|}{\begin{tabular}[c]{@{}l@{}}
+                                                                                                   -2, 2
+            \end{tabular}} & \multicolumn{1}{l|}{\begin{tabular}[c]{@{}l@{}}
+                                                     3, -3
+            \end{tabular}} & \multicolumn{1}{l|}{\begin{tabular}[c]{@{}l@{}}
+                                                     \textcolor{blue}{5q-3}
+            \end{tabular}} & & \\ \cline{3-5}
+            & \multicolumn{1}{l|}{\textcolor{red}{1-p}} & \multicolumn{1}{l|}{\begin{tabular}[c]{@{}l@{}}
+                                                                                  3, -3
+            \end{tabular}} & \multicolumn{1}{l|}{\begin{tabular}[c]{@{}l@{}}
+                                                     -4, 4
+            \end{tabular}} & \multicolumn{1}{l|}{\begin{tabular}[c]{@{}l@{}}
+                                                     \textcolor{blue}{-7q+4}
+            \end{tabular}} & & \\ \cline{3-5}
+            & & \multicolumn{1}{|l|}{\textcolor{red}{-5p+3}} & \multicolumn{1}{l|}{\textcolor{red}{7p-4}} & \multicolumn{1}{l}{} & & \\ \cline{3-4}
+            & &                                           &                                            &                      & &
+        \end{tabular}
+    \end{table}
+
+
+    \begin{tikzpicture}[>=latex][h]
+        \centering
+        \begin{axis}
+            [
+            axis x line=center,
+            axis y line=center,
+            width={\linewidth},
+            ytick={1,2,...,3},
+            xtick={0.1,0.2,...,1},
+            xlabel={$p$},
+            ylabel={$R_A$},
+            xlabel style={below right},
+            ylabel style={above left},
+            xmin=0,
+            xmax=1.1,
+            ymin=0,
+            ymax=4,
+            domain=0:1]
+            \addplot+[mark=] {-5*x+3};
+            \addplot+[mark=] {7*x-4};
+            \node[red,scale=6] at (axis cs:7/12,1/12) {.};
+            \draw[red, dashed] (axis cs:7/12,1/12) -- (axis cs:7/12,0);
+            \node[above right, red] at (axis cs:7/12,0) {$\cfrac{7}{12}$};
+        \end{axis}
+        \node [anchor=north] at (0,0) {$O$};
+    \end{tikzpicture}
+
+    \begin{tikzpicture}[>=latex][h]
+        \centering
+        \begin{axis}
+            [
+            axis x line=center,
+            axis y line=center,
+            width={\linewidth},
+            ytick={-1,0,...,4},
+            xtick={0.1,0.2,...,1},
+            extra y ticks= {0},
+            xlabel={$q$},
+            ylabel={$R_B$},
+            xlabel style={below right},
+            ylabel style={above left},
+            xmin=0,
+            xmax=1.1,
+            ymin=-1,
+            ymax=5,
+            domain=0:1]
+            \addplot+[mark=] {5*x-3};
+            \addplot+[mark=] {-7*x+4};
+            \node[red,scale=6] at (axis cs:7/12,-1/12) {.};
+            \draw[red, dashed] (axis cs:7/12,-1/12) -- (axis cs:7/12,0);
+            \node[above right, red] at (axis cs:7/12,0) {$\cfrac{7}{12}$};
+        \end{axis}
+
+    \end{tikzpicture}
+    \todo[inline]{Add a couple of sentences to explain the results of the graphs.}
+
+    \subsection{Travelers’ dilemma: Discrete version}
+
+    \subsubsection{Answer 1:}
+
+    \subsubsection{Answer 2:}
+
+    \subsubsection{Answer 3:}
+
+    \subsubsection{Answer 4:}
+
+    \subsubsection{Answer 5:}
+
+    \subsubsection{Answer 6:}
+
+    \subsection{Cournot’s Duopoly (continuous version)}
+
+    \subsubsection{Answer 1:}
+    Utility is given by:
+    \begin{equation}
+        \begin{split}
+            u_i(q_1,q_2)&=(\alpha -\beta(q_1+q_2) - c_i)*q_i\\
+            &=\alpha*q_i -\beta*q_1^2 -\beta*q_2*q_1 - c_i*q_2
+        \end{split}
+    \end{equation}
+    where either $q_1$ or $q_2$ is fixed and $\alpha, \beta>0$.
+    Lets say company $1$ has to respond to company $2$, then the maximum profit is given by the maximum utility.
+    \begin{align}
+        & \cfrac{\partial u_1}{\partial q_1}=\alpha - 2\beta*q_1 - \beta*q_2 - c_1\\
+        & \cfrac{\cfrac{\partial u_1}{\partial q_1}}{\partial q_1}=-2\beta
+    \end{align}
+    Where we get the maximum by calculating the x-axis intersection of the derivative (while making sure it is a maximum by
+    looking at the second derivative)
+    \begin{align}
+        &\cfrac{\partial u_1}{\partial q_1}=0 \leftrightarrow \alpha - 2\beta*q_1 - \beta*q_2 - c_1=0\\
+        & q_1 = \cfrac{-\alpha+\beta*q_2 + c_1}{-2\beta}
+        \label{eqn:max_q_1}
+    \end{align}
+    The value seen in equation~\ref{eqn:max_q_1} is therefore the best response of company one if company two already
+    given their quantity. Similarly the best result for company two ($q_2$) can be derived:
+    \begin{equation*}
+        q_2 = \cfrac{-\alpha+\beta*q_1 + c_1}{-2\beta}
+    \end{equation*}
+
+    \subsubsection{Answer 2:}
+    In an infinite game, the two best responses will change for each company until they join in an Equilibrium. The actual values
+    will be dependent on the constant parameters $\alpha, \beta, c_1,$ and $c_2$.
+    \begin{figure}[h]
+        \begin{tikzpicture}[>=latex]
+            \centering
+            \begin{axis}
+                [
+                axis x line=center,
+                axis y line=center,
+                width={\linewidth},
+                ytick={},
+                xtick={},
+                xlabel={$q_2$},
+                ylabel={$q_1$},
+                xlabel style={below right},
+                ylabel style={above left},
+                xmin=0,
+                xmax=6,
+                ymin=0,
+                ymax=6,
+                domain=0:6]
+                \addplot+[mark=] {-2*x+5};
+                \addplot+[mark=] {-0.5*x+2.5};
+                \node[red,scale=4] at (axis cs:5/3,5/3) {.};
+                \node[above right, red] at (axis cs:5/3,5/3) {Nash Equilibrium};
+            \end{axis}
+        \end{tikzpicture}
+        \caption{Illustration of the quantities each company will produce. Notice that the lines are similar only on different axis,
+            which is only the case if they have the same production cost $c_i$.}
+    \end{figure}
+    \section*{1.4}
+    \subsection*{1.4.1}
+    We can give the utility as the area that Charlize will serve (equation~\ref{eqn:utility_c})
+    \begin{align}
+        \begin{split}
+            u_c(a, b)&=(c+((b-c)/2)) - (c+(a-c)/2)\\
+            & = 0.5b - 0.5c - 0.5a + 0.5c\\
+            & = (b-a)/2
+        \end{split}
+        \label{eqn:utility_c}
+    \end{align}
+    Therefore, the area Charlize will cover is maximized as long as she choses her position between Alice and Bob.
+    \subsection*{1.4.2}
+    We can make a case distinction. The area we get between Alice and Bob will be exactly half of the area between them.
+    Once the area that is available to us if we would go in-between Alice and Bob becomes smaller than the area to the right of
+    Bob, we just go to the right of Bob. Otherwise we stay in the middle.
+    \begin{equation}
+        BR_c(a,b)=\left\{
+        \begin{array}{lll}
+            & \text{directly right of b } & \mbox{if } \frac{(b-a)}{2}\leq(1-b) \\
+            & \mbox{between a and b}      & \text{otherwise}
+        \end{array}
+        \right.
+    \end{equation}
+    \subsection*{1.4.3}
+    We want to maximize our expected utility (served area) considering that one more seller (Charlize) will also come and maximize
+    her expected utility. For this, we need a position in which Charlize will move between us an Alice and the area between us and
+    Alice is minimized. This is exactly the case (see above), when the following condition is true:
+    \begin{equation}
+        1-b = (b-a)/2
+    \end{equation}
+    Therefore, Bob will position himself exactly at $0,7$ to maximize his utility while considering that Charlize will still show up.
+
+    \subsection*{1.4.4}
+    She should set up her place exactly at $\cfrac{1}{4}$ or $\cfrac{3}{4}$ (because of symmetry).
 \end{document}
