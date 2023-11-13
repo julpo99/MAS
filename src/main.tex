@@ -281,16 +281,98 @@
     \subsection{Travelers’ dilemma: Discrete version}
 
     \subsubsection{Answer 1:}
+    Pay-off matrix for traveler A and B:
+    \begin{table}[h]
+        \centering
+        \begin{tabular}{lllllll}
+            & & \multicolumn{3}{c}{B} & & \\
+            &                        & \multicolumn{1}{c}{1}      & \multicolumn{1}{c}{2} & \multicolumn{1}{c}{3}                          & & \\ \cline{3-5}
+            \multirow{3}{*}{A} & \multicolumn{1}{r|}{1} & \multicolumn{1}{l|}{1, 1} & \multicolumn{1}{l|}{1+a, 1-a} & \multicolumn{1}{l|}{1+a, 1-a} &  &  \\ \cline{3-5}
+            & \multicolumn{1}{l|}{2} & \multicolumn{1}{l|}{1-a, 1+a} & \multicolumn{1}{l|}{2, 2} & \multicolumn{1}{l|}{2+a, 2-a} & & \\ \cline{3-5}
+            & \multicolumn{1}{l|}{3} & \multicolumn{1}{l|}{1-a, 1+a} & \multicolumn{1}{l|}{2-a, 2+a} & \multicolumn{1}{l|}{3, 3} & & \\ \cline{3-5}
+        \end{tabular}
+    \end{table}
 
     \subsubsection{Answer 2:}
+    There are 3 nash equilibriua, which occur when the travelers choose the same value. The NEs are marked red in the following pay-off matrix:
+
+    \begin{table}[h]
+        \centering
+        \begin{tabular}{lllllll}
+            & & \multicolumn{3}{c}{B} & & \\
+            &                        & \multicolumn{1}{c}{1}      & \multicolumn{1}{c}{2} & \multicolumn{1}{c}{3}                          & & \\ \cline{3-5}
+            \multirow{3}{*}{A} & \multicolumn{1}{r|}{1} & \multicolumn{1}{l|}{\textcolor{red}{1, 1}} & \multicolumn{1}{l|}{1+a, 1-a} & \multicolumn{1}{l|}{1+a, 1-a} &  &  \\ \cline{3-5}
+            & \multicolumn{1}{l|}{2} & \multicolumn{1}{l|}{1-a, 1+a} & \multicolumn{1}{l|}{\textcolor{red}{2, 2}} & \multicolumn{1}{l|}{2+a, 2-a} & & \\ \cline{3-5}
+            & \multicolumn{1}{l|}{3} & \multicolumn{1}{l|}{1-a, 1+a} & \multicolumn{1}{l|}{2-a, 2+a} & \multicolumn{1}{l|}{\textcolor{red}{3, 3}} & & \\ \cline{3-5}
+        \end{tabular}
+    \end{table}
 
     \subsubsection{Answer 3:}
+    We use the following pay-off matrix with probabilities:
 
+    \begin{table}[h]
+        \centering
+        \begin{tabular}{lllllll}
+            & & \multicolumn{3}{c}{B} & & \\
+            &                        & \multicolumn{1}{c}{v}      & \multicolumn{1}{c}{w} & \multicolumn{1}{c}{1-(v+w)}                          & & \\ \cline{3-5}
+            \multirow{3}{*}{A} & \multicolumn{1}{r|}{p} & \multicolumn{1}{l|}{1, 1} & \multicolumn{1}{l|}{1+a, 1-a} & \multicolumn{1}{l|}{1+a, 1-a} &  &  \\ \cline{3-5}
+            & \multicolumn{1}{r|}{q} & \multicolumn{1}{l|}{1-a, 1+a} & \multicolumn{1}{l|}{2, 2} & \multicolumn{1}{l|}{2+a, 2-a} & & \\ \cline{3-5}
+            & \multicolumn{1}{l|}{1-(p+q)} & \multicolumn{1}{l|}{1-a, 1+a} & \multicolumn{1}{l|}{2-a, 2+a} & \multicolumn{1}{l|}{3, 3} & & \\ \cline{3-5}
+        \end{tabular}
+    \end{table}
+
+    We then determine $p$ and $q$ using the following equations:
+    \begin{equation}
+        p+q(1+a)+(1+a)(1-(p+q)) = p(1-a)+2q+(2+a)(1-(p+q))
+    \end{equation}
+    \begin{equation}
+        p+q(1+a)+(1+a)(1-(p+q)) = p(1-a)+q(2-a)+3(1-(p+q))
+    \end{equation}
+
+    This results in $p=\frac{1-a+a^2}{a^2+1}$ and $q=\frac{a(1-a)}{a^2+1}$. \\
+
+    To determine whether there are mixed Nash equilibria in which all three strategies are mixed, the values of $p$, $q$ and $1-(p+q)$ have to be not zero. While the actual values of them depend on $a$, we can still verify that it will never be zero:
+    \begin{itemize}
+        \item $p=0 \implies$ \text{not possible if $a$ is a real number}
+        \item $q=0 \implies a=0 \lor a=1$
+        \item $1-(p+q)=0 \implies a=0 \lor a=2 $
+    \end{itemize}
+
+    Since $0<a<\frac{1}{2}$, neither $p$, $q$ nor $1-(p+q)$ can be zero. Therefore, there are  mixed Nash equilibria in which all three strategies are mixed.
     \subsubsection{Answer 4:}
+    No, because the value of $a$ is still unknown and it is therefore not possible to make a statement regarding the NE.
 
     \subsubsection{Answer 5:}
+    Regret matrix:
+    
+    \begin{table}[h]
+        \centering
+        \begin{tabular}{lllllll}
+            & & \multicolumn{3}{c}{B} & & \\
+            &                        & \multicolumn{1}{c}{1}      & \multicolumn{1}{c}{2} & \multicolumn{1}{c}{3}                          & & \\ \cline{3-5}
+            \multirow{3}{*}{A} & \multicolumn{1}{r|}{1} & \multicolumn{1}{l|}{0, 0} & \multicolumn{1}{l|}{1-a, a} & \multicolumn{1}{l|}{2-a, a} &  &  \\ \cline{3-5}
+            & \multicolumn{1}{l|}{2} & \multicolumn{1}{l|}{a, 1-a} & \multicolumn{1}{l|}{0, 0} & \multicolumn{1}{l|}{1-a, a} & & \\ \cline{3-5}
+            & \multicolumn{1}{l|}{3} & \multicolumn{1}{l|}{a, 2-a} & \multicolumn{1}{l|}{a, 1-a} & \multicolumn{1}{l|}{0, 0} & & \\ \cline{3-5}
+        \end{tabular}
+    \end{table}
 
     \subsubsection{Answer 6:}
+    Regret minimisation strategies in terms of \textbf{pure} strategies:
+
+    \begin{table}[h]
+        \centering
+        \begin{tabular}{lllllll}
+            & & \multicolumn{3}{c}{B} & & \\
+            &                        & \multicolumn{1}{c}{1}      & \multicolumn{1}{c}{2} & \multicolumn{1}{c}{3}                          & & \\ \cline{3-5}
+            \multirow{3}{*}{A} & \multicolumn{1}{r|}{1} & \multicolumn{1}{l|}{0, 0} & \multicolumn{1}{l|}{1-a, a} & \multicolumn{1}{l|}{2-a, a} &  & \rightarrow \textcolor{red}{2-a}  \\ \cline{3-5}
+            & \multicolumn{1}{l|}{2} & \multicolumn{1}{l|}{a, 1-a} & \multicolumn{1}{l|}{0, 0} & \multicolumn{1}{l|}{1-a, a} & & \rightarrow \textcolor{red}{1-a} \\ \cline{3-5}
+            & \multicolumn{1}{l|}{3} & \multicolumn{1}{l|}{a, 2-a} & \multicolumn{1}{l|}{a, 1-a} & \multicolumn{1}{l|}{0, 0} & & \rightarrow \textcolor{red}{\fbox{a}} \\ \cline{3-5}
+            & & \downarrow & \downarrow & \downarrow & &
+            & & & \textcolor{red}{2-a} & \textcolor{red}{1-a} & \textcolor{red}{\fbox{a}}
+        \end{tabular}
+    \end{table}
+
+    Both players should play action 3.
 
     \subsection{Cournot’s Duopoly (continuous version)}
 
