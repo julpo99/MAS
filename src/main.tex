@@ -9,6 +9,8 @@
 \usepackage{amsmath}
 \usepackage{multirow}
 \usepackage{pgfplots}
+\usepackage{float}
+\usepackage{caption}
 \usepackage[colorinlistoftodos]{todonotes}
 \pgfplotsset{compat=1.12}
 
@@ -24,7 +26,6 @@
 
     \subsubsection{Answer 1:}
     Payoff matrix:
-% Please add the following required packages to your document preamble:
     \begin{table}[h]
         \centering
         \begin{tabular}{llllll}
@@ -47,13 +48,13 @@
                                                                                   5 0
             \end{tabular}} & \multicolumn{1}{l|}{\begin{tabular}[c]{@{}l@{}}
                                                      0 5
-            \end{tabular}} &  & \rightarrow \textcolor{red}{\fbox{5}}\\ \cline{3-4}
+            \end{tabular}} &  & $\rightarrow$ \textcolor{red}{\fbox{5}}\\ \cline{3-4}
             & \multicolumn{1}{l|}{2} & \multicolumn{1}{l|}{\begin{tabular}[c]{@{}l@{}}
                                                                0 7
             \end{tabular}} & \multicolumn{1}{l|}{\begin{tabular}[c]{@{}l@{}}
                                                      7 0
-            \end{tabular}} &  & \rightarrow \textcolor{red}{7}\\ \cline{3-4}
-            & & \downarrow & \downarrow & &
+            \end{tabular}} &  & $\rightarrow$ \textcolor{red}{7}\\ \cline{3-4}
+            & & $\downarrow$ & $\downarrow$ & &
             & & & \textcolor{red}{7} & \textcolor{red}{\fbox{5}} &
         \end{tabular}
     \end{table}
@@ -89,62 +90,66 @@
         \end{tabular}
     \end{table}
 
-
-    \begin{tikzpicture}[>=latex][h]
+    \begin{figure}[H]
         \centering
-        \begin{axis}
-            [
-            axis x line=center,
-            axis y line=center,
-            width={\linewidth},
-            ytick={1,2,...,7},
-            xtick={0.1,0.2,...,1},
-            xlabel={$p$},
-            ylabel={$R_A$},
-            xlabel style={below right},
-            ylabel style={above left},
-            xmin=0,
-            xmax=1.1,
-            ymin=0,
-            ymax=8,
-            domain=0:1]
-            \addplot+[mark=] {5*x};
-            \addplot+[mark=] {7-7*x)};
-            \node[red,scale=6] at (axis cs:7/12,35/12) {.};
-            \draw[red, dashed] (axis cs:7/12,35/12) -- (axis cs:7/12,0);
-            \node[above right, red] at (axis cs:7/12,0) {$\cfrac{7}{12}$};
-        \end{axis}
-        \node [anchor=north] at (0,0) {$O$};
-    \end{tikzpicture}
+        \begin{tikzpicture}[>=latex]
+            \begin{axis}
+                [
+                axis x line=center,
+                axis y line=center,
+                width={\linewidth},
+                ytick={1,2,...,7},
+                xtick={0.1,0.2,...,1},
+                xlabel={$p$},
+                ylabel={$R_A$},
+                xlabel style={below right},
+                ylabel style={above left},
+                xmin=0,
+                xmax=1.1,
+                ymin=0,
+                ymax=8,
+                domain=0:1]
+                \addplot+[mark=] {5*x};
+                \addplot+[mark=] {7-7*x)};
+                \node[red,scale=6] at (axis cs:7/12,35/12) {.};
+                \draw[red, dashed] (axis cs:7/12,35/12) -- (axis cs:7/12,0);
+                \node[above right, red] at (axis cs:7/12,0) {$\cfrac{7}{12}$};
+            \end{axis}
+            \node [anchor=north] at (0,0) {$O$};
+        \end{tikzpicture}
+        \caption{Player A should play strategy 1 with p = $\cfrac{7}{12}$ and strategy 2 with p = $\cfrac{5}{12}$.}
+    \end{figure}
 
-    \begin{tikzpicture}[>=latex][h]
-        \centering
-        \begin{axis}
-            [
-            axis x line=center,
-            axis y line=center,
-            width={\linewidth},
-            ytick={1,2,...,5},
-            xtick={0.1,0.2,...,1},
-            xlabel={$q$},
-            ylabel={$R_B$},
-            xlabel style={below right},
-            ylabel style={above left},
-            xmin=0,
-            xmax=1.1,
-            ymin=0,
-            ymax=6,
-            domain=0:1]
-            \addplot+[mark=] {7*x};
-            \addplot+[mark=] {5-5*x)};
-            \node[red,scale=6] at (axis cs:5/12,35/12) {.};
-            \draw[red, dashed] (axis cs:5/12,35/12) -- (axis cs:5/12,0);
-            \node[above right, red] at (axis cs:5/12,0) {$\cfrac{5}{12}$};
-        \end{axis}
-        \node [anchor=north] at (0,0) {$O$};
+    \begin{figure}[H]
+        \begin{tikzpicture}[>=latex][h]
+            \centering
+            \begin{axis}
+                [
+                axis x line=center,
+                axis y line=center,
+                width={\linewidth},
+                ytick={1,2,...,5},
+                xtick={0.1,0.2,...,1},
+                xlabel={$q$},
+                ylabel={$R_B$},
+                xlabel style={below right},
+                ylabel style={above left},
+                xmin=0,
+                xmax=1.1,
+                ymin=0,
+                ymax=6,
+                domain=0:1]
+                \addplot+[mark=] {7*x};
+                \addplot+[mark=] {5-5*x)};
+                \node[red,scale=6] at (axis cs:5/12,35/12) {.};
+                \draw[red, dashed] (axis cs:5/12,35/12) -- (axis cs:5/12,0);
+                \node[above right, red] at (axis cs:5/12,0) {$\cfrac{5}{12}$};
+            \end{axis}
+            \node [anchor=north] at (0,0) {$O$};
 
-    \end{tikzpicture}
-    \todo[inline]{Add a couple of sentences to explain the results of the graphs.}
+        \end{tikzpicture}
+        \caption{Player B should play strategy 1 with q = $\cfrac{5}{12}$ and strategy 2 with q = $\cfrac{7}{12}$.}
+    \end{figure}
 
     \subsubsection{Answer 4:}
     Safety strategies for each player in terms of \textbf{pure} strategies:
@@ -158,13 +163,13 @@
                                                                                   -2, 2
             \end{tabular}} & \multicolumn{1}{l|}{\begin{tabular}[c]{@{}l@{}}
                                                      3, -3
-            \end{tabular}} &  & \rightarrow \textcolor{red}{\fbox{-2} \hspace{0.2cm}\textbf{MAX}}\\ \cline{3-4}
+            \end{tabular}} &  & $\rightarrow$ \textcolor{red}{\fbox{-2} \hspace{0.2cm}\textbf{MAX}}\\ \cline{3-4}
             & \multicolumn{1}{l|}{2} & \multicolumn{1}{l|}{\begin{tabular}[c]{@{}l@{}}
                                                                3, -3
             \end{tabular}} & \multicolumn{1}{l|}{\begin{tabular}[c]{@{}l@{}}
                                                      -4, 4
-            \end{tabular}} &  & \rightarrow \textcolor{red}{-4}\\ \cline{3-4}
-            & & \downarrow & \downarrow & &
+            \end{tabular}} &  & $\rightarrow$ \textcolor{red}{-4}\\ \cline{3-4}
+            & & $\downarrow$ & $\downarrow$ & &
             & & & \textcolor{red}{\fbox{-3}} & \textcolor{red}{\fbox{-3}} &
             & & & & \textcolor{red}{MAX} & \textcolor{red}{MAX}
         \end{tabular}
@@ -192,7 +197,6 @@
         \end{align*}
     \end{minipage}
 
-
     \subsubsection{Answer 5:}
 
     Safety strategies for each player in terms of \textbf{mixed} strategies:
@@ -201,7 +205,7 @@
         \centering
         \begin{tabular}{lllllll}
             & & \multicolumn{2}{c}{B} & & & \\
-            & & \multicolumn{1}{c}{\textcolor{blue}{q}}   & \textcolor{blue}{1-q}                      &                      & & \\ \cline{3-5}
+            & & \multicolumn{1}{c}{\textcolor{blue}{q}}      & \textcolor{blue}{1-q}                      &                      & & \\ \cline{3-5}
             \multirow{2}{*}{A} & \multicolumn{1}{r|}{\textcolor{red}{p}} & \multicolumn{1}{l|}{\begin{tabular}[c]{@{}l@{}}
                                                                                                    -2, 2
             \end{tabular}} & \multicolumn{1}{l|}{\begin{tabular}[c]{@{}l@{}}
@@ -217,66 +221,70 @@
                                                      \textcolor{blue}{-7q+4}
             \end{tabular}} & & \\ \cline{3-5}
             & & \multicolumn{1}{|l|}{\textcolor{red}{-5p+3}} & \multicolumn{1}{l|}{\textcolor{red}{7p-4}} & \multicolumn{1}{l}{} & & \\ \cline{3-4}
-            & &                                           &                                            &                      & &
+            & &                                              &                                            &                      & &
         \end{tabular}
     \end{table}
 
+    \begin{figure}[H]
+        \begin{tikzpicture}[>=latex]
+            \centering
+            \begin{axis}
+                [
+                axis x line=center,
+                axis y line=center,
+                width={\linewidth},
+                ytick={1,2,...,3},
+                xtick={0.1,0.2,...,1},
+                xlabel={$p$},
+                ylabel={$R_A$},
+                xlabel style={below right},
+                ylabel style={above left},
+                xmin=0,
+                xmax=1.1,
+                ymin=0,
+                ymax=4,
+                domain=0:1]
+                \addplot+[mark=] {-5*x+3};
+                \addplot+[mark=] {7*x-4};
+                \node[red,scale=6] at (axis cs:7/12,1/12) {.};
+                \draw[red, dashed] (axis cs:7/12,1/12) -- (axis cs:7/12,0);
+                \node[above right, red] at (axis cs:7/12,0) {$\cfrac{7}{12}$};
+            \end{axis}
+            \node [anchor=north] at (0,0) {$O$};
+        \end{tikzpicture}
+        \caption{Player A should play strategy 1 with p = $\cfrac{7}{12}$ and strategy 2 with p = $\cfrac{5}{12}$.}
+    \end{figure}
 
-    \begin{tikzpicture}[>=latex][h]
-        \centering
-        \begin{axis}
-            [
-            axis x line=center,
-            axis y line=center,
-            width={\linewidth},
-            ytick={1,2,...,3},
-            xtick={0.1,0.2,...,1},
-            xlabel={$p$},
-            ylabel={$R_A$},
-            xlabel style={below right},
-            ylabel style={above left},
-            xmin=0,
-            xmax=1.1,
-            ymin=0,
-            ymax=4,
-            domain=0:1]
-            \addplot+[mark=] {-5*x+3};
-            \addplot+[mark=] {7*x-4};
-            \node[red,scale=6] at (axis cs:7/12,1/12) {.};
-            \draw[red, dashed] (axis cs:7/12,1/12) -- (axis cs:7/12,0);
-            \node[above right, red] at (axis cs:7/12,0) {$\cfrac{7}{12}$};
-        \end{axis}
-        \node [anchor=north] at (0,0) {$O$};
-    \end{tikzpicture}
+    \begin{figure}[H]
+        \begin{tikzpicture}[>=latex]
+            \centering
+            \begin{axis}
+                [
+                axis x line=center,
+                axis y line=center,
+                width={\linewidth},
+                ytick={-1,0,...,4},
+                xtick={0.1,0.2,...,1},
+                extra y ticks= {0},
+                xlabel={$q$},
+                ylabel={$R_B$},
+                xlabel style={below right},
+                ylabel style={above left},
+                xmin=0,
+                xmax=1.1,
+                ymin=-1,
+                ymax=5,
+                domain=0:1]
+                \addplot+[mark=] {5*x-3};
+                \addplot+[mark=] {-7*x+4};
+                \node[red,scale=6] at (axis cs:7/12,-1/12) {.};
+                \draw[red, dashed] (axis cs:7/12,-1/12) -- (axis cs:7/12,0);
+                \node[above right, red] at (axis cs:7/12,0) {$\cfrac{7}{12}$};
+            \end{axis}
 
-    \begin{tikzpicture}[>=latex][h]
-        \centering
-        \begin{axis}
-            [
-            axis x line=center,
-            axis y line=center,
-            width={\linewidth},
-            ytick={-1,0,...,4},
-            xtick={0.1,0.2,...,1},
-            extra y ticks= {0},
-            xlabel={$q$},
-            ylabel={$R_B$},
-            xlabel style={below right},
-            ylabel style={above left},
-            xmin=0,
-            xmax=1.1,
-            ymin=-1,
-            ymax=5,
-            domain=0:1]
-            \addplot+[mark=] {5*x-3};
-            \addplot+[mark=] {-7*x+4};
-            \node[red,scale=6] at (axis cs:7/12,-1/12) {.};
-            \draw[red, dashed] (axis cs:7/12,-1/12) -- (axis cs:7/12,0);
-            \node[above right, red] at (axis cs:7/12,0) {$\cfrac{7}{12}$};
-        \end{axis}
-
-    \end{tikzpicture}
-    \todo[inline]{Add a couple of sentences to explain the results of the graphs.}
+        \end{tikzpicture}
+        \caption{Player B should play strategy 1 with q = $\cfrac{7}{12}$ and strategy 2 with q = $\cfrac{5}{12}$.}
+    \end{figure}
 
     \subsection{Travelers’ dilemma: Discrete version}
 
@@ -286,24 +294,24 @@
         \centering
         \begin{tabular}{lllllll}
             & & \multicolumn{3}{c}{B} & & \\
-            &                        & \multicolumn{1}{c}{1}      & \multicolumn{1}{c}{2} & \multicolumn{1}{c}{3}                          & & \\ \cline{3-5}
-            \multirow{3}{*}{A} & \multicolumn{1}{r|}{1} & \multicolumn{1}{l|}{1, 1} & \multicolumn{1}{l|}{1+a, 1-a} & \multicolumn{1}{l|}{1+a, 1-a} &  &  \\ \cline{3-5}
-            & \multicolumn{1}{l|}{2} & \multicolumn{1}{l|}{1-a, 1+a} & \multicolumn{1}{l|}{2, 2} & \multicolumn{1}{l|}{2+a, 2-a} & & \\ \cline{3-5}
+            &                        & \multicolumn{1}{c}{1}         & \multicolumn{1}{c}{2}         & \multicolumn{1}{c}{3}         & & \\ \cline{3-5}
+            \multirow{3}{*}{A} & \multicolumn{1}{r|}{1} & \multicolumn{1}{l|}{1, 1}     & \multicolumn{1}{l|}{1+a, 1-a} & \multicolumn{1}{l|}{1+a, 1-a} &  &  \\ \cline{3-5}
+            & \multicolumn{1}{l|}{2} & \multicolumn{1}{l|}{1-a, 1+a} & \multicolumn{1}{l|}{2, 2}     & \multicolumn{1}{l|}{2+a, 2-a} & & \\ \cline{3-5}
             & \multicolumn{1}{l|}{3} & \multicolumn{1}{l|}{1-a, 1+a} & \multicolumn{1}{l|}{2-a, 2+a} & \multicolumn{1}{l|}{3, 3} & & \\ \cline{3-5}
         \end{tabular}
     \end{table}
 
     \subsubsection{Answer 2:}
-    There are 3 nash equilibriua, which occur when the travelers choose the same value. The NEs are marked red in the following pay-off matrix:
+    There are 3 nash equilibria, which occur when the travelers choose the same value. The NEs are marked red in the following pay-off matrix:
 
     \begin{table}[h]
         \centering
         \begin{tabular}{lllllll}
             & & \multicolumn{3}{c}{B} & & \\
-            &                        & \multicolumn{1}{c}{1}      & \multicolumn{1}{c}{2} & \multicolumn{1}{c}{3}                          & & \\ \cline{3-5}
+            &                        & \multicolumn{1}{c}{1}                      & \multicolumn{1}{c}{2}                      & \multicolumn{1}{c}{3}                      & & \\ \cline{3-5}
             \multirow{3}{*}{A} & \multicolumn{1}{r|}{1} & \multicolumn{1}{l|}{\textcolor{red}{1, 1}} & \multicolumn{1}{l|}{1+a, 1-a} & \multicolumn{1}{l|}{1+a, 1-a} &  &  \\ \cline{3-5}
-            & \multicolumn{1}{l|}{2} & \multicolumn{1}{l|}{1-a, 1+a} & \multicolumn{1}{l|}{\textcolor{red}{2, 2}} & \multicolumn{1}{l|}{2+a, 2-a} & & \\ \cline{3-5}
-            & \multicolumn{1}{l|}{3} & \multicolumn{1}{l|}{1-a, 1+a} & \multicolumn{1}{l|}{2-a, 2+a} & \multicolumn{1}{l|}{\textcolor{red}{3, 3}} & & \\ \cline{3-5}
+            & \multicolumn{1}{l|}{2} & \multicolumn{1}{l|}{1-a, 1+a}              & \multicolumn{1}{l|}{\textcolor{red}{2, 2}} & \multicolumn{1}{l|}{2+a, 2-a} & & \\ \cline{3-5}
+            & \multicolumn{1}{l|}{3} & \multicolumn{1}{l|}{1-a, 1+a}              & \multicolumn{1}{l|}{2-a, 2+a} & \multicolumn{1}{l|}{\textcolor{red}{3, 3}} & & \\ \cline{3-5}
         \end{tabular}
     \end{table}
 
@@ -314,9 +322,9 @@
         \centering
         \begin{tabular}{lllllll}
             & & \multicolumn{3}{c}{B} & & \\
-            &                        & \multicolumn{1}{c}{v}      & \multicolumn{1}{c}{w} & \multicolumn{1}{c}{1-(v+w)}                          & & \\ \cline{3-5}
-            \multirow{3}{*}{A} & \multicolumn{1}{r|}{p} & \multicolumn{1}{l|}{1, 1} & \multicolumn{1}{l|}{1+a, 1-a} & \multicolumn{1}{l|}{1+a, 1-a} &  &  \\ \cline{3-5}
-            & \multicolumn{1}{r|}{q} & \multicolumn{1}{l|}{1-a, 1+a} & \multicolumn{1}{l|}{2, 2} & \multicolumn{1}{l|}{2+a, 2-a} & & \\ \cline{3-5}
+            &                              & \multicolumn{1}{c}{v}         & \multicolumn{1}{c}{w}         & \multicolumn{1}{c}{1-(v+w)}   & & \\ \cline{3-5}
+            \multirow{3}{*}{A} & \multicolumn{1}{r|}{p}       & \multicolumn{1}{l|}{1, 1}     & \multicolumn{1}{l|}{1+a, 1-a} & \multicolumn{1}{l|}{1+a, 1-a} &  &  \\ \cline{3-5}
+            & \multicolumn{1}{r|}{q}       & \multicolumn{1}{l|}{1-a, 1+a} & \multicolumn{1}{l|}{2, 2}     & \multicolumn{1}{l|}{2+a, 2-a} & & \\ \cline{3-5}
             & \multicolumn{1}{l|}{1-(p+q)} & \multicolumn{1}{l|}{1-a, 1+a} & \multicolumn{1}{l|}{2-a, 2+a} & \multicolumn{1}{l|}{3, 3} & & \\ \cline{3-5}
         \end{tabular}
     \end{table}
@@ -338,20 +346,21 @@
         \item $1-(p+q)=0 \implies a=0 \lor a=2 $
     \end{itemize}
 
-    Since $0<a<\frac{1}{2}$, neither $p$, $q$ nor $1-(p+q)$ can be zero. Therefore, there are  mixed Nash equilibria in which all three strategies are mixed.
+    Since $0<a<\frac{1}{2}$, neither $p$, $q$ nor $1-(p+q)$ can be zero. Therefore, there are mixed Nash equilibria in which all three strategies are mixed.
+
     \subsubsection{Answer 4:}
     No, because the value of $a$ is still unknown and it is therefore not possible to make a statement regarding the NE.
 
     \subsubsection{Answer 5:}
     Regret matrix:
-    
+
     \begin{table}[h]
         \centering
         \begin{tabular}{lllllll}
             & & \multicolumn{3}{c}{B} & & \\
-            &                        & \multicolumn{1}{c}{1}      & \multicolumn{1}{c}{2} & \multicolumn{1}{c}{3}                          & & \\ \cline{3-5}
-            \multirow{3}{*}{A} & \multicolumn{1}{r|}{1} & \multicolumn{1}{l|}{0, 0} & \multicolumn{1}{l|}{1-a, a} & \multicolumn{1}{l|}{2-a, a} &  &  \\ \cline{3-5}
-            & \multicolumn{1}{l|}{2} & \multicolumn{1}{l|}{a, 1-a} & \multicolumn{1}{l|}{0, 0} & \multicolumn{1}{l|}{1-a, a} & & \\ \cline{3-5}
+            &                        & \multicolumn{1}{c}{1}       & \multicolumn{1}{c}{2}       & \multicolumn{1}{c}{3}       & & \\ \cline{3-5}
+            \multirow{3}{*}{A} & \multicolumn{1}{r|}{1} & \multicolumn{1}{l|}{0, 0}   & \multicolumn{1}{l|}{1-a, a} & \multicolumn{1}{l|}{2-a, a} &  &  \\ \cline{3-5}
+            & \multicolumn{1}{l|}{2} & \multicolumn{1}{l|}{a, 1-a} & \multicolumn{1}{l|}{0, 0}   & \multicolumn{1}{l|}{1-a, a} & & \\ \cline{3-5}
             & \multicolumn{1}{l|}{3} & \multicolumn{1}{l|}{a, 2-a} & \multicolumn{1}{l|}{a, 1-a} & \multicolumn{1}{l|}{0, 0} & & \\ \cline{3-5}
         \end{tabular}
     \end{table}
@@ -363,11 +372,11 @@
         \centering
         \begin{tabular}{lllllll}
             & & \multicolumn{3}{c}{B} & & \\
-            &                        & \multicolumn{1}{c}{1}      & \multicolumn{1}{c}{2} & \multicolumn{1}{c}{3}                          & & \\ \cline{3-5}
-            \multirow{3}{*}{A} & \multicolumn{1}{r|}{1} & \multicolumn{1}{l|}{0, 0} & \multicolumn{1}{l|}{1-a, a} & \multicolumn{1}{l|}{2-a, a} &  & \rightarrow \textcolor{red}{2-a}  \\ \cline{3-5}
-            & \multicolumn{1}{l|}{2} & \multicolumn{1}{l|}{a, 1-a} & \multicolumn{1}{l|}{0, 0} & \multicolumn{1}{l|}{1-a, a} & & \rightarrow \textcolor{red}{1-a} \\ \cline{3-5}
-            & \multicolumn{1}{l|}{3} & \multicolumn{1}{l|}{a, 2-a} & \multicolumn{1}{l|}{a, 1-a} & \multicolumn{1}{l|}{0, 0} & & \rightarrow \textcolor{red}{\fbox{a}} \\ \cline{3-5}
-            & & \downarrow & \downarrow & \downarrow & &
+            & & \multicolumn{1}{c}{1} & \multicolumn{1}{c}{2} & \multicolumn{1}{c}{3} & & \\ \cline{3-5}
+            \multirow{3}{*}{A} & \multicolumn{1}{r|}{1} & \multicolumn{1}{l|}{0, 0} & \multicolumn{1}{l|}{1-a, a} & \multicolumn{1}{l|}{2-a, a} &  & $\rightarrow$ \textcolor{red}{2-a}  \\ \cline{3-5}
+            & \multicolumn{1}{l|}{2} & \multicolumn{1}{l|}{a, 1-a} & \multicolumn{1}{l|}{0, 0} & \multicolumn{1}{l|}{1-a, a} & & $\rightarrow$ \textcolor{red}{1-a} \\ \cline{3-5}
+            & \multicolumn{1}{l|}{3} & \multicolumn{1}{l|}{a, 2-a} & \multicolumn{1}{l|}{a, 1-a} & \multicolumn{1}{l|}{0, 0} & & $\rightarrow$ \textcolor{red}{\fbox{a}} \\ \cline{3-5}
+            & & $\downarrow$ & $\downarrow$ & $\downarrow$ & &
             & & & \textcolor{red}{2-a} & \textcolor{red}{1-a} & \textcolor{red}{\fbox{a}}
         \end{tabular}
     \end{table}
