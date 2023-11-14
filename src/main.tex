@@ -11,6 +11,8 @@
 \usepackage{pgfplots}
 \usepackage{float}
 \usepackage{caption}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
 \usepackage[colorinlistoftodos]{todonotes}
 \pgfplotsset{compat=1.12}
 
@@ -24,8 +26,7 @@
 
     \subsection{Odd or even game}
 
-    \subsubsection{Answer 1:}
-    Payoff matrix:
+    \subsubsection{Write down the pay-off matrix for this game.}
     \begin{table}[h]
         \centering
         \begin{tabular}{llllll}
@@ -37,8 +38,7 @@
         \end{tabular}
     \end{table}
 
-    \subsubsection{Answer 2:}
-    Regret minimisation strategies in terms of \textbf{pure} strategies:
+    \subsubsection{What are the regret minimisation strategies in terms of pure strategies?}
     \begin{table}[h]
         \centering
         \begin{tabular}{llllll}
@@ -63,8 +63,7 @@
 
     Player B should play 2.
 
-    \subsubsection{Answer 3:}
-    Regret minimisation strategies in terms of \textbf{mixed} strategies:
+    \subsubsection{What are the regret minimisation strategies in terms of mixed strategies?}
 
     \begin{table}[h]
         \centering
@@ -151,8 +150,7 @@
         \caption{Player B should play strategy 1 with q = $\cfrac{5}{12}$ and strategy 2 with q = $\cfrac{7}{12}$.}
     \end{figure}
 
-    \subsubsection{Answer 4:}
-    Safety strategies for each player in terms of \textbf{pure} strategies:
+    \subsubsection{What are the safety strategies for each player in terms of pure strategies?}
 
     \begin{table}[h]
         \centering
@@ -197,9 +195,7 @@
         \end{align*}
     \end{minipage}
 
-    \subsubsection{Answer 5:}
-
-    Safety strategies for each player in terms of \textbf{mixed} strategies:
+    \subsubsection{What are the safety strategies for each player in terms of mixed strategies?}
 
     \begin{table}[h]
         \centering
@@ -288,7 +284,7 @@
 
     \subsection{Travelers’ dilemma: Discrete version}
 
-    \subsubsection{Answer 1:}
+    \subsubsection{Write down the pay-off matrix for this game.}
     Pay-off matrix for traveler A and B:
     \begin{table}[h]
         \centering
@@ -301,7 +297,7 @@
         \end{tabular}
     \end{table}
 
-    \subsubsection{Answer 2:}
+    \subsubsection{Determine the pure Nash equilibriua (PNE, there might be none, one or multiple ones).}
     There are 3 nash equilibria, which occur when the travelers choose the same value. The NEs are marked red in the following pay-off matrix:
 
     \begin{table}[h]
@@ -315,7 +311,7 @@
         \end{tabular}
     \end{table}
 
-    \subsubsection{Answer 3:}
+    \subsubsection{Are there mixed Nash equilibria in which all three strategies are mixed?}
     We use the following pay-off matrix with probabilities:
 
     \begin{table}[h]
@@ -348,11 +344,10 @@
 
     Since $0<a<\frac{1}{2}$, neither $p$, $q$ nor $1-(p+q)$ can be zero. Therefore, there are mixed Nash equilibria in which all three strategies are mixed.
 
-    \subsubsection{Answer 4:}
+    \subsubsection{Does this knowledge about the NE help the travelers in their decision?}
     No, because the value of $a$ is still unknown and it is therefore not possible to make a statement regarding the NE.
 
-    \subsubsection{Answer 5:}
-    Regret matrix:
+    \subsubsection{Write down the regret matrix. This matrix is similar to the pay-off matrix, but now specifies the regret (rather than the pay-off) for each action profile.}
 
     \begin{table}[h]
         \centering
@@ -365,8 +360,7 @@
         \end{tabular}
     \end{table}
 
-    \subsubsection{Answer 6:}
-    Regret minimisation strategies in terms of \textbf{pure} strategies:
+    \subsubsection{What are the (pure) regret minimisation strategies?}
 
     \begin{table}[h]
         \centering
@@ -385,7 +379,7 @@
 
     \subsection{Cournot’s Duopoly (continuous version)}
 
-    \subsubsection{Answer 1:}
+    \subsubsection{What is the best response for each company given the quantity the other company will produce?}
     Utility is given by:
     \begin{equation}
         \begin{split}
@@ -412,7 +406,7 @@
         q_2 = \cfrac{-\alpha+\beta*q_1 + c_1}{-2\beta}
     \end{equation*}
 
-    \subsubsection{Answer 2:}
+    \subsubsection{Suppose the companies need not decide on their quantity at the same time, but can react to one another (an unlimited number of times). What will be the outcome? (Provide a diagram.)}
     In an infinite game, the two best responses will change for each company until they join in an Equilibrium. The actual values
     will be dependent on the constant parameters $\alpha, \beta, c_1,$ and $c_2$.
     \begin{figure}[h]
@@ -443,8 +437,10 @@
         \caption{Illustration of the quantities each company will produce. Notice that the lines are similar only on different axis,
             which is only the case if they have the same production cost $c_i$.}
     \end{figure}
-    \section*{1.4}
-    \subsection*{1.4.1}
+
+    \subsection{Ice cream time!}
+
+    \subsubsection{On a beautiful summer morning Charlize makes her way to the beach and upon arrival finds that her two competitors have already set up their stalls: Alice at location a = 0.1 and Bob at location b = 0.8. Discuss what Charlize’s best response is: i.e. what location should she choose, given a = 0.1 and b = 0.8?}
     We can give the utility as the area that Charlize will serve (equation~\ref{eqn:utility_c})
     \begin{align}
         \begin{split}
@@ -455,7 +451,8 @@
         \label{eqn:utility_c}
     \end{align}
     Therefore, the area Charlize will cover is maximized as long as she choses her position between Alice and Bob.
-    \subsection*{1.4.2}
+
+    \subsubsection{Same question as above, but now assume that all we know is that a = 0.1 and a<b\leq1.}
     We can make a case distinction. The area we get between Alice and Bob will be exactly half of the area between them.
     Once the area that is available to us if we would go in-between Alice and Bob becomes smaller than the area to the right of
     Bob, we just go to the right of Bob. Otherwise we stay in the middle.
@@ -467,7 +464,8 @@
         \end{array}
         \right.
     \end{equation}
-    \subsection*{1.4.3}
+
+    \subsubsection{Earlier that morning, Bob arrived and discovered that Alice had already set up her stall at a = 0.1, while Charlize hadn’t shown up yet. But Bob knows that Charlize will arrive before too long, and that she will try to position herself in such a way as to maximize her revenue. What location should Bob pick in order to maximize his own expected revenue?}
     We want to maximize our expected utility (served area) considering that one more seller (Charlize) will also come and maximize
     her expected utility. For this, we need a position in which Charlize will move between us an Alice and the area between us and
     Alice is minimized. This is exactly the case (see above), when the following condition is true:
@@ -476,6 +474,6 @@
     \end{equation}
     Therefore, Bob will position himself exactly at $0,7$ to maximize his utility while considering that Charlize will still show up.
 
-    \subsection*{1.4.4}
+    \subsubsection{At sunrise that morning, Alice arrived before both Bob and Charlize, and set up her stall at location a = 0.1. However she knows for sure that the other two vendors will show up soon. Where should she have set up her stall in order to maximize her expected revenue?}
     She should set up her place exactly at $\cfrac{1}{4}$ or $\cfrac{3}{4}$ (because of symmetry).
 \end{document}
