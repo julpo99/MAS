@@ -62,7 +62,7 @@
 
     Player B should play 2.
 
-    \subsubsection{What are the regret minimisation strategies in terms of mixed strategies?}
+    \subsubsection{What are the regret minimization strategies in terms of mixed strategies?}
 
     \begin{table}[h]
         \centering
@@ -341,10 +341,10 @@
         \item $1-(p+q)=0 \implies a=0 \lor a=2 $
     \end{itemize}
 
-    Since $0<a<\frac{1}{2}$, neither $p$, $q$ nor $1-(p+q)$ can be zero. Therefore, there are mixed Nash equilibria in which all three strategies are mixed.
+    Since $0<a<\frac{1}{2}$, neither $p$ $q$ nor $1-(p+q)$ can be zero. Therefore, there are mixed Nash equilibria in which all three strategies are mixed.
 
     \subsubsection{Does this knowledge about the NE help the travelers in their decision?}
-    No, because the value of $a$ is still unknown and it is therefore not possible to make a statement regarding the NE.
+    No, because the value of $a$ is still unknown, and it is therefore not possible to make a statement regarding the NE.
 
     \subsubsection{Write down the regret matrix. This matrix is similar to the pay-off matrix, but now specifies the regret (rather than the pay-off) for each action profile.}
 
@@ -387,7 +387,7 @@
         \end{split}
     \end{equation*}
     where either $q_1$ or $q_2$ is fixed and $\alpha, \beta>0$.
-    Lets say company $1$ has to respond to company $2$, then the maximum profit is given by the maximum utility.
+    Let's say a company $1$ has to respond to company $2$, then the maximum profit is given by the maximum utility.
     \begin{align*}
         & \cfrac{\partial u_1}{\partial q_1}=\alpha - 2\beta*q_1 - \beta*q_2 - c_1\\
         & \cfrac{\cfrac{\partial u_1}{\partial q_1}}{\partial q_1}=-2\beta
@@ -395,7 +395,7 @@
     Where we get the maximum by calculating the x-axis intersection of the derivative (while making sure it is a maximum by
     looking at the second derivative)
     \begin{align}
-        &\cfrac{\partial u_1}{\partial q_1}=0 \leftrightarrow \alpha - 2\beta*q_1 - \beta*q_2 - c_1=0\\
+        &\cfrac{\partial u_1}{\partial q_1}=0 \leftrightarrow \alpha- 2\beta*q_1 - \beta*q_2 - c_1=0\\
         & q_1 = \cfrac{-\alpha+\beta*q_2 + c_1}{-2\beta}
         \label{eqn:max_q_1}
     \end{align}
@@ -439,7 +439,7 @@
 
     \subsection{Ice cream time!}
 
-    \subsubsection{On a beautiful summer morning Charlize makes her way to the beach and upon arrival finds that her two competitors have already set up their stalls: Alice at location a = 0.1 and Bob at location b = 0.8. Discuss what Charlize’s best response is: i.e. what location should she choose, given a = 0.1 and b = 0.8?}
+    \subsubsection{On a beautiful summer morning Charlize makes her way to the beach and upon arrival finds that her two competitors have already set up their stalls: Alice at location a = 0.1 and Bob at location b = 0.8. Discuss what Charlize’s best response is: i.e., what location should she choose, given a =0.1 and b =0.8?}
     We can give the utility as the area that Charlize will serve (equation~\ref{eqn:utility_c})
     \begin{align}
         \begin{split}
@@ -453,8 +453,9 @@
 
     \subsubsection{Same question as above, but now assume that all we know is that $\mathbf{a = 0.1}$ and $\mathbf{a<b\leq1}$.}
     We can make a case distinction. The area we get between Alice and Bob will be exactly half of the area between them.
-    Once the area that is available to us if we would go in-between Alice and Bob becomes smaller than the area to the right of
-    Bob, we just go to the right of Bob. Otherwise we stay in the middle.
+    Once the area that is available to us if we go in-between Alice and Bob becomes smaller than the area to the right of
+    Bob, we just go to the right of Bob.
+    Otherwise, we stay in the middle.
     \begin{equation*}
         BR_c(a,b)=\left\{
         \begin{array}{lll}
@@ -467,15 +468,17 @@
     \subsubsection{Earlier that morning, Bob arrived and discovered that Alice had already set up her stall at a = 0.1, while Charlize hadn’t shown up yet. But Bob knows that Charlize will arrive before too long, and that she will try to position herself in such a way as to maximize her revenue. What location should Bob pick in order to maximize his own expected revenue?}
     We want to maximize our expected utility (served area) considering that one more seller (Charlize) will also come and maximize
     her expected utility. For this, we need a position in which Charlize will move between us an Alice and the area between us and
-    Alice is minimized. This is exactly the case (see above), when the following condition is true:
+    Alice is minimized.
+    This is exactly the case (see above) when the following condition is true:
     \begin{equation*}
         1-b = (b-a)/2
     \end{equation*}
     Therefore, Bob will position himself exactly at $0,7$ to maximize his utility while considering that Charlize will still show up.
 
-    \subsubsection{At sunrise that morning, Alice arrived before both Bob and Charlize, and set up her stall at location a = 0.1. However she knows for sure that the other two vendors will show up soon. Where should she have set up her stall in order to maximize her expected revenue?}
-    She should set up her place exactly at $\frac{1}{4}$ or $\frac{3}{4}$ (because of symmetry). This can be shown by checking what happens
-    if Alice does not chose this strategy:
+    \subsubsection{At sunrise that morning, Alice arrived before both Bob and Charlize, and set up her stall at location a =0.1. However, she knows for sure that the other two vendors will show up soon. Where should she have set up her stall in order to maximize her expected revenue?}
+    She should set up her place exactly at $\frac{1}{4}$ or $\frac{3}{4}$ (because of symmetry).
+    This can be shown by checking what happens
+    if Alice does not choose this strategy:
     \paragraph*{Case 1}: If Alice choses a higher Point than $\frac{1}{4}$, then Bob can simply mirror her chosing (as seen from the other side), but moving a tiny bit towards the edge.
     Now, Charlize has three options, move left of Alice, right of Bob or between them.\\
     \begin{itemize}
@@ -493,12 +496,12 @@
         \item Right of Bob: The area is $\frac{1}{4}+\epsilon-\gamma$ 
         \item Left of Alice: The area is $\frac{1}{4}+\epsilon$
     \end{itemize}
-    $\Rightarrow$The area left of Alice will be the largest, i.e. Charlize moves there. Since Charlize moves as close to
+    $\Rightarrow$The area left of Alice will be the largest, i.e.\ Charlize moves there. Since Charlize moves as close to
     Alice as possible, the remaining area for Alice will be half of the area between her and Bob, which is $<\frac{1}{4}$
     
     \paragraph*{Case 2}: If Alice choses a lower point than $\frac{1}{4}$. Bob can know employ the same strategy as before,
-    he can move a little bit more to the edge than Alice. This makes Charlize move into the middle. Since the middle is know
-    bigger than if Alice would have chosen $\frac{1}{4}$, Charlize gets more of the mid part and Alice looses some of here share.
+    he can move a little bit more to the edge than Alice. This makes Charlize move into the middle. Since the middle is now
+    bigger than if Alice had chosen $\frac{1}{4}$, Charlize gets more of the mid-part and Alice looses some of here share.
     $\Rightarrow$ Therefore, Alice should not move right of $\frac{1}{4}$. the only reasonable option therefore is, to stay at
     $\frac{1}{4}$.
 \end{document}
