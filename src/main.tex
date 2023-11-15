@@ -475,5 +475,31 @@
     Therefore, Bob will position himself exactly at $0,7$ to maximize his utility while considering that Charlize will still show up.
 
     \subsubsection{At sunrise that morning, Alice arrived before both Bob and Charlize, and set up her stall at location a = 0.1. However she knows for sure that the other two vendors will show up soon. Where should she have set up her stall in order to maximize her expected revenue?}
-    She should set up her place exactly at $\cfrac{1}{4}$ or $\cfrac{3}{4}$ (because of symmetry).
+    She should set up her place exactly at $\frac{1}{4}$ or $\frac{3}{4}$ (because of symmetry). This can be shown by checking what happens
+    if Alice does not chose this strategy:
+    \paragraph*{Case 1}: If Alice choses a higher Point than $\frac{1}{4}$, then Bob can simply mirror her chosing (as seen from the other side), but moving a tiny bit towards the edge.
+    Now, Charlize has three options, move left of Alice, right of Bob or between them.\\
+    \begin{itemize}
+        \item Between: Charlizie will receive $\frac{1}{2}$ of the area between Alice and Charlize. This is less than $\frac{1}{4}$ since Alice
+        moved towards the right. Let $\epsilon$ be the value Alice moved right and $\gamma<\epsilon$ be the shift of Bob to the right. If Bob mirrors Alice as described,
+        the area between them is: 
+        \begin{equation}
+            \begin{split}
+            \text{area}&=\cfrac{(b+\gamma)-(a+\epsilon)}{2}=\cfrac{(1-(a+\epsilon)+\gamma)-(a+\epsilon)}{2}\\
+            &=\cfrac{1-a-\epsilon+\gamma-a-\epsilon}{2}=\cfrac{1-2*a-2\epsilon+\gamma}{2}\\
+            &=\cfrac{1}{2}-a-\cfrac{2\epsilon+\gamma}{2}=\cfrac{1}{4}-\cfrac{2\epsilon-\gamma}{2}
+            \end{split}
+        \end{equation}
+        Since $a=\frac{1}{4}$ and $\gamma<\epsilon$, the area between Alice and Bob will be less than $\frac{1}{4}$
+        \item Right of Bob: The area is $\frac{1}{4}+\epsilon-\gamma$ 
+        \item Left of Alice: The area is $\frac{1}{4}+\epsilon$
+    \end{itemize}
+    $\Rightarrow$The area left of Alice will be the largest, e.g. Charlize moves there. Since Charlize moves as close to
+    Alice as possible, the remaining area for Alice will be half of the area between her and Bob, which is $<\frac{1}{4}$
+    
+    \paragraph*{Case 2}: If Alice choses a lower point than $\frac{1}{4}$. Bob can know employ the same strategy as before,
+    he can move a little bit more to the edge than Alice. This makes Charlize move into the middle. Since the middle is know
+    bigger than if Alice would have chosen $\frac{1}{4}$, Charlize gets more of the mid part and Alice looses some of here share.
+    $\Rightarrow$ Therefore, Alice should not move right of $\frac{1}{4}$. the only reasonable option therefore is, to stay at
+    $\frac{1}{4}$.
 \end{document}
