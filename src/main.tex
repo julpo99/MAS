@@ -3,8 +3,6 @@
 
 % Preamble
 \documentclass[11pt]{article}
-\title{Homework Assignment 1}
-
 % Packages
 \usepackage{amsmath}
 \usepackage{multirow}
@@ -16,10 +14,10 @@
 \usepackage[colorinlistoftodos]{todonotes}
 \pgfplotsset{compat=1.12}
 
-
+\title{Homework 1: Game Theory - Group 42}
+\author{Julian Ramondo - 2785746 \and Lukas Unruh - 2772548 \and Mika Rosin - 2817059}
 % Document
 \begin{document}
-    \author{Julian Ramondo - 2785746 \and Lukas Unruh - 2772548 \and Mika Rosin - 0000000}
     \maketitle
 
 
@@ -49,14 +47,14 @@
                                                                                   5 0
             \end{tabular}} & \multicolumn{1}{l|}{\begin{tabular}[c]{@{}l@{}}
                                                      0 5
-            \end{tabular}} &  & $\rightarrow$ \textcolor{red}{\fbox{5}}\\ \cline{3-4}
+            \end{tabular}} & $\rightarrow$ \textcolor{red}{\fbox{5}}\\ \cline{3-4}
             & \multicolumn{1}{l|}{2} & \multicolumn{1}{l|}{\begin{tabular}[c]{@{}l@{}}
                                                                0 7
             \end{tabular}} & \multicolumn{1}{l|}{\begin{tabular}[c]{@{}l@{}}
                                                      7 0
-            \end{tabular}} &  & $\rightarrow$ \textcolor{red}{7}\\ \cline{3-4}
-            & & $\downarrow$ & $\downarrow$ & &
-            & & & \textcolor{red}{7} & \textcolor{red}{\fbox{5}} &
+            \end{tabular}} & $\rightarrow$ \textcolor{red}{7}\\ \cline{3-4}
+            & & $\downarrow$ & $\downarrow$ & &\\
+            & & \textcolor{red}{7} & \textcolor{red}{\fbox{5}} &
         \end{tabular}
     \end{table}
 
@@ -110,10 +108,10 @@
                 ymax=8,
                 domain=0:1]
                 \addplot+[mark=] {5*x};
-                \addplot+[mark=] {7-7*x)};
+                \addplot+[mark=] {7-7*x};
                 \node[red,scale=6] at (axis cs:7/12,35/12) {.};
                 \draw[red, dashed] (axis cs:7/12,35/12) -- (axis cs:7/12,0);
-                \node[above right, red] at (axis cs:7/12,0) {$\cfrac{7}{12}$};
+                \node[above right, red] at (axis cs:7/12,0) {$p=\cfrac{7}{12}$};
             \end{axis}
             \node [anchor=north] at (0,0) {$O$};
         \end{tikzpicture}
@@ -143,7 +141,7 @@
                 \addplot+[mark=] {5-5*x)};
                 \node[red,scale=6] at (axis cs:5/12,35/12) {.};
                 \draw[red, dashed] (axis cs:5/12,35/12) -- (axis cs:5/12,0);
-                \node[above right, red] at (axis cs:5/12,0) {$\cfrac{5}{12}$};
+                \node[above right, red] at (axis cs:5/12,0) {$q=\cfrac{5}{12}$};
             \end{axis}
             \node [anchor=north] at (0,0) {$O$};
 
@@ -162,15 +160,15 @@
                                                                                   -2, 2
             \end{tabular}} & \multicolumn{1}{l|}{\begin{tabular}[c]{@{}l@{}}
                                                      3, -3
-            \end{tabular}} &  & $\rightarrow$ \textcolor{red}{\fbox{-2} \hspace{0.2cm}\textbf{MAX}}\\ \cline{3-4}
+            \end{tabular}} & $\rightarrow$ \textcolor{red}{\fbox{-2} \hspace{0.2cm}\textbf{MAX}}\\ \cline{3-4}
             & \multicolumn{1}{l|}{2} & \multicolumn{1}{l|}{\begin{tabular}[c]{@{}l@{}}
                                                                3, -3
             \end{tabular}} & \multicolumn{1}{l|}{\begin{tabular}[c]{@{}l@{}}
                                                      -4, 4
-            \end{tabular}} &  & $\rightarrow$ \textcolor{red}{-4}\\ \cline{3-4}
-            & & $\downarrow$ & $\downarrow$ & &
-            & & & \textcolor{red}{\fbox{-3}} & \textcolor{red}{\fbox{-3}} &
-            & & & & \textcolor{red}{MAX} & \textcolor{red}{MAX}
+            \end{tabular}} &  $\rightarrow$ \textcolor{red}{-4}\\ \cline{3-4}
+            & & $\downarrow$ & $\downarrow$ & &\\
+            & & \textcolor{red}{\fbox{-3}} & \textcolor{red}{\fbox{-3}} &\\
+            & & \textcolor{red}{MAX} & \textcolor{red}{MAX}
         \end{tabular}
     \end{table}
 
@@ -245,7 +243,7 @@
                 \addplot+[mark=] {7*x-4};
                 \node[red,scale=6] at (axis cs:7/12,1/12) {.};
                 \draw[red, dashed] (axis cs:7/12,1/12) -- (axis cs:7/12,0);
-                \node[above right, red] at (axis cs:7/12,0) {$\cfrac{7}{12}$};
+                \node[above right, red] at (axis cs:29/48,0) {$p=\cfrac{7}{12}$};
             \end{axis}
             \node [anchor=north] at (0,0) {$O$};
         \end{tikzpicture}
@@ -276,14 +274,14 @@
                 \addplot+[mark=] {-7*x+4};
                 \node[red,scale=6] at (axis cs:7/12,-1/12) {.};
                 \draw[red, dashed] (axis cs:7/12,-1/12) -- (axis cs:7/12,0);
-                \node[above right, red] at (axis cs:7/12,0) {$\cfrac{7}{12}$};
+                \node[above, red] at (axis cs:7/12,0.2) {$q=\cfrac{7}{12}$};
             \end{axis}
 
         \end{tikzpicture}
         \caption{Player B should play strategy 1 with q = $\cfrac{7}{12}$ and strategy 2 with q = $\cfrac{5}{12}$.}
     \end{figure}
 
-    \subsection{Travelers’ dilemma: Discrete version}
+    \subsection{Travelers' dilemma: Discrete version}
 
     \subsubsection{Write down the pay-off matrix for this game.}
     Pay-off matrix for traveler A and B:
@@ -368,32 +366,32 @@
         \begin{tabular}{lllllll}
             & & \multicolumn{3}{c}{B} & & \\
             & & \multicolumn{1}{c}{1} & \multicolumn{1}{c}{2} & \multicolumn{1}{c}{3} & & \\ \cline{3-5}
-            \multirow{3}{*}{A} & \multicolumn{1}{r|}{1} & \multicolumn{1}{l|}{0, 0} & \multicolumn{1}{l|}{1-a, a} & \multicolumn{1}{l|}{2-a, a} &  & $\rightarrow$ \textcolor{red}{2-a}  \\ \cline{3-5}
-            & \multicolumn{1}{l|}{2} & \multicolumn{1}{l|}{a, 1-a} & \multicolumn{1}{l|}{0, 0} & \multicolumn{1}{l|}{1-a, a} & & $\rightarrow$ \textcolor{red}{1-a} \\ \cline{3-5}
-            & \multicolumn{1}{l|}{3} & \multicolumn{1}{l|}{a, 2-a} & \multicolumn{1}{l|}{a, 1-a} & \multicolumn{1}{l|}{0, 0} & & $\rightarrow$ \textcolor{red}{\fbox{a}} \\ \cline{3-5}
-            & & $\downarrow$ & $\downarrow$ & $\downarrow$ & &
-            & & & \textcolor{red}{2-a} & \textcolor{red}{1-a} & \textcolor{red}{\fbox{a}}
+            \multirow{3}{*}{A} & \multicolumn{1}{r|}{1} & \multicolumn{1}{l|}{0, 0} & \multicolumn{1}{l|}{1-a, a} & \multicolumn{1}{l|}{2-a, a} & $\rightarrow$ \textcolor{red}{2-a}  \\ \cline{3-5}
+            & \multicolumn{1}{l|}{2} & \multicolumn{1}{l|}{a, 1-a} & \multicolumn{1}{l|}{0, 0} & \multicolumn{1}{l|}{1-a, a} & $\rightarrow$ \textcolor{red}{1-a} \\ \cline{3-5}
+            & \multicolumn{1}{l|}{3} & \multicolumn{1}{l|}{a, 2-a} & \multicolumn{1}{l|}{a, 1-a} & \multicolumn{1}{l|}{0, 0} & $\rightarrow$ \textcolor{red}{\fbox{a}} \\ \cline{3-5}
+            & & $\downarrow$ & $\downarrow$ & $\downarrow$ & &\\
+            & & \textcolor{red}{2-a} & \textcolor{red}{1-a} & \textcolor{red}{\fbox{a}}
         \end{tabular}
     \end{table}
 
     Both players should play action 3.
 
-    \subsection{Cournot’s Duopoly (continuous version)}
+    \subsection{Cournot's Duopoly (continuous version)}
 
     \subsubsection{What is the best response for each company given the quantity the other company will produce?}
     Utility is given by:
-    \begin{equation}
+    \begin{equation*}
         \begin{split}
             u_i(q_1,q_2)&=(\alpha -\beta(q_1+q_2) - c_i)*q_i\\
             &=\alpha*q_i -\beta*q_1^2 -\beta*q_2*q_1 - c_i*q_2
         \end{split}
-    \end{equation}
+    \end{equation*}
     where either $q_1$ or $q_2$ is fixed and $\alpha, \beta>0$.
     Lets say company $1$ has to respond to company $2$, then the maximum profit is given by the maximum utility.
-    \begin{align}
+    \begin{align*}
         & \cfrac{\partial u_1}{\partial q_1}=\alpha - 2\beta*q_1 - \beta*q_2 - c_1\\
         & \cfrac{\cfrac{\partial u_1}{\partial q_1}}{\partial q_1}=-2\beta
-    \end{align}
+    \end{align*}
     Where we get the maximum by calculating the x-axis intersection of the derivative (while making sure it is a maximum by
     looking at the second derivative)
     \begin{align}
@@ -435,7 +433,7 @@
                 \node[above right, red] at (axis cs:5/3,5/3) {Nash Equilibrium};
             \end{axis}
         \end{tikzpicture}
-        \caption{Illustration of the quantities each company will produce. Notice that the lines are similar only on different axis,
+        \caption{Illustration of the quantities each company will produce. Notice that the lines are similar with respect to their axes,
             which is only the case if they have the same production cost $c_i$.}
     \end{figure}
 
@@ -453,26 +451,26 @@
     \end{align}
     Therefore, the area Charlize will cover is maximized as long as she choses her position between Alice and Bob.
 
-    \subsubsection{Same question as above, but now assume that all we know is that a = 0.1 and a<b\leq1.}
+    \subsubsection{Same question as above, but now assume that all we know is that $\mathbf{a = 0.1}$ and $\mathbf{a<b\leq1}$.}
     We can make a case distinction. The area we get between Alice and Bob will be exactly half of the area between them.
     Once the area that is available to us if we would go in-between Alice and Bob becomes smaller than the area to the right of
     Bob, we just go to the right of Bob. Otherwise we stay in the middle.
-    \begin{equation}
+    \begin{equation*}
         BR_c(a,b)=\left\{
         \begin{array}{lll}
             & \text{directly right of b } & \mbox{if } \frac{(b-a)}{2}\leq(1-b) \\
             & \mbox{between a and b}      & \text{otherwise}
         \end{array}
         \right.
-    \end{equation}
+    \end{equation*}
 
     \subsubsection{Earlier that morning, Bob arrived and discovered that Alice had already set up her stall at a = 0.1, while Charlize hadn’t shown up yet. But Bob knows that Charlize will arrive before too long, and that she will try to position herself in such a way as to maximize her revenue. What location should Bob pick in order to maximize his own expected revenue?}
     We want to maximize our expected utility (served area) considering that one more seller (Charlize) will also come and maximize
     her expected utility. For this, we need a position in which Charlize will move between us an Alice and the area between us and
     Alice is minimized. This is exactly the case (see above), when the following condition is true:
-    \begin{equation}
+    \begin{equation*}
         1-b = (b-a)/2
-    \end{equation}
+    \end{equation*}
     Therefore, Bob will position himself exactly at $0,7$ to maximize his utility while considering that Charlize will still show up.
 
     \subsubsection{At sunrise that morning, Alice arrived before both Bob and Charlize, and set up her stall at location a = 0.1. However she knows for sure that the other two vendors will show up soon. Where should she have set up her stall in order to maximize her expected revenue?}
@@ -481,21 +479,21 @@
     \paragraph*{Case 1}: If Alice choses a higher Point than $\frac{1}{4}$, then Bob can simply mirror her chosing (as seen from the other side), but moving a tiny bit towards the edge.
     Now, Charlize has three options, move left of Alice, right of Bob or between them.\\
     \begin{itemize}
-        \item Between: Charlizie will receive $\frac{1}{2}$ of the area between Alice and Charlize. This is less than $\frac{1}{4}$ since Alice
+        \item Between: Charlize will receive $\frac{1}{2}$ of the area between Alice and Charlize. This is less than $\frac{1}{4}$ since Alice
         moved towards the right. Let $\epsilon$ be the value Alice moved right and $\gamma<\epsilon$ be the shift of Bob to the right. If Bob mirrors Alice as described,
         the area between them is: 
-        \begin{equation}
+        \begin{equation*}
             \begin{split}
             \text{area}&=\cfrac{(b+\gamma)-(a+\epsilon)}{2}=\cfrac{(1-(a+\epsilon)+\gamma)-(a+\epsilon)}{2}\\
             &=\cfrac{1-a-\epsilon+\gamma-a-\epsilon}{2}=\cfrac{1-2*a-2\epsilon+\gamma}{2}\\
             &=\cfrac{1}{2}-a-\cfrac{2\epsilon+\gamma}{2}=\cfrac{1}{4}-\cfrac{2\epsilon-\gamma}{2}
             \end{split}
-        \end{equation}
+        \end{equation*}
         Since $a=\frac{1}{4}$ and $\gamma<\epsilon$, the area between Alice and Bob will be less than $\frac{1}{4}$
         \item Right of Bob: The area is $\frac{1}{4}+\epsilon-\gamma$ 
         \item Left of Alice: The area is $\frac{1}{4}+\epsilon$
     \end{itemize}
-    $\Rightarrow$The area left of Alice will be the largest, e.g. Charlize moves there. Since Charlize moves as close to
+    $\Rightarrow$The area left of Alice will be the largest, i.e. Charlize moves there. Since Charlize moves as close to
     Alice as possible, the remaining area for Alice will be half of the area between her and Bob, which is $<\frac{1}{4}$
     
     \paragraph*{Case 2}: If Alice choses a lower point than $\frac{1}{4}$. Bob can know employ the same strategy as before,
