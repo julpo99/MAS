@@ -26,6 +26,7 @@ In the following, we denote cheap as $c$ and expensive as $e$
         \par As we can see, $-2,-2$ is the only pure Nash Equilibrium, therefore both Alice and Bob will chose the expensive meal.
 
     \subsubsection{Alice is quite the romantic type and gets an additional \textit{s} Euros worth of pleasure if they happen to pick the same meal (either both cheap or both expensive). Bob, on the other hand, is a bit of a contrarian and gets an additional amount of pleasure (also equivalent to \textbf{s} Euro) when they happen to favour different meal choices. Assume that $ 0 < s \leq 2 $. How does this change the pay-off matrix and the Nash equilibrium (or equilibria) of this game?}
+        \par Mixed Nash-Equilibrium:\\
         \begin{table}[h]
             \centering
             \begin{tabular}{llllll}
@@ -44,10 +45,8 @@ In the following, we denote cheap as $c$ and expensive as $e$
         \begin{equation}
             q(2+s)-3(1-q) = 3q+(s-2)(1-q)
         \end{equation}
-        \\
 
-        This results in $p=\cfrac{s-1}{2s}$ and $q=\cfrac{s+1}{2s}$. \\
-        \\
+        This results in $p=\frac{s-1}{2s}$ and $q=\frac{s+1}{2s}$. \\
         $s$ must be greater or equal to 1, otherwise the payoffs are negative. \\
         \par
         The pure equilibria can be determined in relation to $s$, a combination of moved is a Nash equilibrium iff for A $u_{A,s}(m_{A,i}, m_{B,i})>u_{A,s}(m_{A,j}, m_{B,i})$ (Similarly for B).
@@ -58,8 +57,7 @@ In the following, we denote cheap as $c$ and expensive as $e$
             &pick_B(A \text{ picks } c)=&& -3>-2+s \Leftrightarrow -1>s \Rightarrow \text{B does not pick c}\\
             &pick_B(A \text{ picks } e)=&& 2+s>3 \Leftrightarrow s>1 \Rightarrow \text{B picks c if s>1}\\
         \end{alignat*}
-        $\Rightarrow$ Both pick cheap for $s>1$, and both will pick Expensive for $s<1$ while for $s=1$
-        \par Mixed Nash:
+        $\Rightarrow$ Both pick cheap for $s>1$, and both will pick Expensive for $s<1$ while for $s=1$, there obviously is no strict Nash-Equilibrium.
 
 
    

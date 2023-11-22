@@ -1,7 +1,7 @@
 \subsection{Investment in recycling}
 
     \subsubsection{Determine each country's best-response function.}
-    Since the utilities are defined equally for any country $i$ we can write one best response function for country $i$:
+    Since the utilities are defined equally for any country $i$ we can write one best response function for any country $i$:
     \begin{equation}
         \begin{split}
             BR_i=(r_j)&=max(b_i(r_i,r_j)r_i-4r_i)\\
@@ -37,18 +37,28 @@
                 \addplot+[mark=] {4*x-12};
                 \addplot+[mark=] {3+(x/4)-(1/2)};
                 \node[red,scale=6] at (axis cs:4,4) {.};
+                \node[blue,scale=6] at (axis cs:4-2/15,4-8/15) {.};
                 \draw[red, dashed] (axis cs:4,4) -- (axis cs:4,0);
                 \node[above left, red] at (axis cs:4,0) {$BR_1(r_2)=BR_2(r_1)=4$};
             \end{axis}
             \node [anchor=north] at (0,0) {$0$};
         \end{tikzpicture}
-        \caption{Nash-Equilibrium for country one and two. The Nash-Equilibrium is at $r_i=r_j=4$. Additionally, the line where no
-        intersection is indicated is the line with different intersect from the next task}
+        \caption{Nash-Equilibrium for country one and two (red dot). The Nash-Equilibrium is at $r_i=r_j=4$. Additionally, the brown line
+        indicates the Best-response for a reduced intercept (reduction shown is one). The blue dot
+        indicates the Nash-Equilibrium resulting from the reduced intercept.
+        }
+        \label{fig:nash_br}
     \end{figure}
 
     \subsubsection{On your previous figure, show how the equilibrium would change if the intercept of one of the countries' average benefit functions $b_i$ fell from 10 to some smaller number. What would this mean for the recycling efforts of both countries?}
     When calculating the $BR_i$ again, but with $10-c$ instead of 10 in the benefit function, the result is
-    $BR_i(r_j)=3+\cfrac{r_j}{4}-\cfrac{c}{2}$. Therefore, the graph would be shifted by half of the applied reduced intercept $c$.
-    This would actually decrease the utility of the other country by $\frac{c}{2}$, while the utility at the NE of the county would be
-    increased by factor $\cfrac{c}{4}$.
+    $BR_i(r_j)=3+\cfrac{r_j}{4}-\cfrac{c}{2}$. If we re-calculate the intersection of the two best responses, we get
+    \begin{itemize}
+        \item $r_1=4-\cfrac{2}{15}*c$
+        \item $r_2=4-\cfrac{8}{15}*c$
+    \end{itemize}
+    Therefore, we see that the country that starts at a lower intercept (10-c) will invest less
+    hours into recycling, in fact, the reduction is four times more than the reduction of the other countries recycling time.
+    The new Nash-Equilibrium is illustrated in the figure above (figure~\ref{fig:nash_br}) by the blue dot. In this
+    figure, $c=1$ was chosen for visualization.
 

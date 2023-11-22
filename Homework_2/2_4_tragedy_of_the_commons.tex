@@ -3,12 +3,16 @@
 
 \subsubsection{Consider the special case where there are only two players (i.e. n = 2). Determine the individual shares $x_1$ and $x_2$ in the Nash equilibrium for this game.}
 
-We distinguish between two cases - (1) $x_1 + x_2 \leq 1$ and (2) $x_1 + x_2 < 1$.
+We distinguish between two cases
+\begin{itemize}
+    \item Case (1): $x_1 + x_2 < 1$
+    \item Case (2): $x_1 + x_2 \geq 1$.
+\end{itemize} 
 For case (1) we get for $BR_1(x_2)$:
 
 \begin{equation}
     \begin{split}
-        BR_1(x_2)&=max(x_1(1 - (x_1 + x_2)))\\
+        BR_1(x_2)&=max(x_1*(1 - (x_1 + x_2)))\\
         &\Leftrightarrow \cfrac{\partial}{\partial x_1}(x_1 - x_1^2 - x_1x_2)=0\\
         &\Leftrightarrow 1-2x_1-x_2=0\\
         &\Leftrightarrow x_1 = \frac{1-x_2}{2}\\
