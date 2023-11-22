@@ -1,0 +1,40 @@
+\subsection{Dining out}
+In the following, we denote cheap as $c$ and expensive as $e$
+    \subsubsection{Write down the pay-off matrix.}
+        \begin{table}[h]
+            \centering
+            \begin{tabular}{llllll}
+                &                                                 & \multicolumn{2}{c}{B}                                    & & \\
+                &                                                 & \multicolumn{1}{c}{c}      & \multicolumn{1}{c}{e}       & & \\ \cline{3-4}
+                \multirow{2}{*}{A}       & \multicolumn{1}{r|}{c} & \multicolumn{1}{l|}{2, 2}  & \multicolumn{1}{l|}{-3, 3}  & & \\ \cline{3-4}
+                                         & \multicolumn{1}{l|}{e} & \multicolumn{1}{l|}{3, -3} & \multicolumn{1}{l|}{-2, -2} & & \\ \cline{3-4}
+                &                        &                            &                                & &
+            \end{tabular}
+        \end{table}
+    \subsubsection{Assuming that they both order simultaneously and without coordinating, what will they order and why?}
+    We can determine the nash equilibria given the payoff matrix:
+        \begin{table}[h]
+            \centering
+            \begin{tabular}{llllll}
+                &                                                 & \multicolumn{2}{c}{B}                                                                     & & \\
+                &                                                 & \multicolumn{1}{c}{c}                 & \multicolumn{1}{c}{e}                             & & \\ \cline{3-4}
+                \multirow{2}{*}{A}       & \multicolumn{1}{r|}{c} & \multicolumn{1}{l|}{2, 2}             & \multicolumn{1}{l|}{-3, \underbar{3}}             & & \\ \cline{3-4}
+                                         & \multicolumn{1}{l|}{e} & \multicolumn{1}{l|}{\underbar{3}, -3} & \multicolumn{1}{l|}{\underbar{-2}, \underbar{-2}} & & \\ \cline{3-4}
+                &                        &                            &                                & &
+            \end{tabular}
+        \end{table}
+        \par As we can see, $-2,-2$ is the only pure Nash Equilibrium, therefore both Alice and Bob will chose the expensive meal.
+
+    \subsubsection{Alice is quite the romantic type and gets an additional \textit{s} Euros worth of pleasure if they happen to pick the same meal (either both cheap or both expensive). Bob, on the other hand, is a bit of a contrarian and gets an additional amount of pleasure (also equivalent to \textbf{s} Euro) when they happen to favour different meal choices. Assume that $ 0 < s \leq 2 $. How does this change the pay-off matrix and the Nash equilibrium (or equilibria) of this game?}
+    \textcolor{red}{TODO MIKA: Neue payoff matrix}The pure equilibria can be determined in relation to $s$, a combination of moved is a Nash equilibrium iff for A $u_{A,s}(m_{A,i}, m_{B,i})>u_{A,s}(m_{A,j}, m_{B,i})$ (Similarly for B).
+        For the 4 combinations, we get the following function $pick$ for picking move c over move e:
+        \begin{alignat*}{3}
+            &pick_A(B \text{ picks } c)=&& 2+s>3 \Leftrightarrow s>1 \Rightarrow \text{A picks c if s>1}\\
+            &pick_A(B \text{ picks } e)=&& -3>-2+s \Leftrightarrow -1>s \Rightarrow \text{A does not pick c}\\
+            &pick_B(A \text{ picks } c)=&& -3>-2+s \Leftrightarrow -1>s \Rightarrow \text{B does not pick c}\\
+            &pick_B(A \text{ picks } e)=&& 2+s>3 \Leftrightarrow s>1 \Rightarrow \text{B picks c if s>1}\\
+        \end{alignat*}
+        $\Rightarrow$ Both pick cheap for $s>1$, and both will pick Expensive for $s<1$ while for $s=1$
+        \par Mixed Nash:\textcolor{red}{TODO JULIAN: AUFGABE EINFÜGEN}
+
+   
