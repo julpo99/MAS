@@ -1,9 +1,54 @@
 \subsection{Investment in recycling}
 
-    \subsubsection{Determine each country’s best-response function.}
+    \subsubsection{Determine each country's best-response function.}
+    Since the utilities are defined equally for any country $i$ we can write one best response function for country $i$:
+    \begin{equation}
+        \begin{split}
+            BR_i=(r_j)&=max(b_i(r_i,r_j)r_i-4r_i)\\
+            &\Leftrightarrow \cfrac{\partial}{\partial r_i}u_i(r_i,r_j)=0\\
+            &\Leftrightarrow \cfrac{\partial}{\partial r_i}((10-r_i+\cfrac{r_j}{2})r_i-4r_i)=0\\
+            &\Leftrightarrow \cfrac{\partial}{\partial r_i}10r_i-r^2+\cfrac{r_ir_j}{2}-4r_i=0\\
+            &\Leftrightarrow r_i = 3-\cfrac{r_j}{4}
+        \end{split}
+    \end{equation}
 
+    \subsubsection{Indicate the pure strategy Nash Equilibrium ($r_1^*,r_2^*$) on the graph;}
+    \begin{figure}[H]
+        \centering
+        \begin{tikzpicture}[>=latex]
+            \begin{axis}
+                [
+                axis x line=center,
+                axis y line=center,
+                width={\linewidth},
+                ytick={1,2,...,5},
+                xtick={1,2,...,5},
+                xlabel={$r_1$},
+                ylabel={$r_2$},
+                xlabel style={below right},
+                ylabel style={above left},
+                xmin=0,
+                xmax=6,
+                ymin=0,
+                ymax=6,
+                domain=0:6,
+                ]
+                \addplot+[mark=] {3-(x/4)};
+                \addplot+[mark=] {3-(x/4)-(1/2)};
+                \addplot+[mark=] {-4*x+12};
+                \node[red,scale=6] at (axis cs:12/5,12/5) {.};
+                \draw[red, dashed] (axis cs:12/5,12/5) -- (axis cs:12/5,0);
+                \node[above left, red] at (axis cs:12/5,0) {$BR_1(r_2)=BR_2(r_1)=\cfrac{12}{5}$};
+            \end{axis}
+            \node [anchor=north] at (0,0) {$0$};
+        \end{tikzpicture}
+        \caption{Nash-Equilibrium for country one and two. The Nash-Equilibrium is at $r_i=r_j=\frac{5}{12}$. Additionally, the line where no
+        intersection is indicated is the line with different intersect from the next task}
+    \end{figure}
 
-    \subsubsection{Indicate the pure strategy Nash Equilibrium ($r1^*,r^*$) on the graph;}
-
-    \subsubsection{On your previous figure, show how the equilibrium would change if the intercept of one of the countries’ average benefit functions bi fell from 10 to some smaller number. What would this mean for the recycling efforts of both countries?}
+    \subsubsection{On your previous figure, show how the equilibrium would change if the intercept of one of the countries' average benefit functions $b_i$ fell from 10 to some smaller number. What would this mean for the recycling efforts of both countries?}
+    When calculating the $BR_i$ again, but with $10-c$ instead of 10 in the benefit function, the result is
+    $BR_i(r_j)=3-\cfrac{r_j}{4}-\cfrac{c}{2}$. Therefore, the graph would be shifted by half of the applied reduced intercept $c$.
+    This would actually decrease the utility of the other country by $\frac{c}{2}$, while the utility at the NE of the county would be
+    increased by factor $\cfrac{c}{4}$.
 
