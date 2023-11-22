@@ -1,8 +1,71 @@
 
 \subsection{Tragedy of the Commons}
 
-\subsubsection{Consider the special case where there are only two players (i.e. n = 2). Determine the individual shares x1 and x2 in the Nash equilibrium for this game.}
+\subsubsection{Consider the special case where there are only two players (i.e. n = 2). Determine the individual shares $x_1$ and $x_2$ in the Nash equilibrium for this game.}
+
+We distinguish between two cases - (1) $x_1 + x_2 \leq 1$ and (2) $x_1 + x_2 < 1$.
+For case (1) we get for $BR_1(x_2)$:
+
+\begin{equation}
+    \begin{split}
+        BR_1(x_2)&=max(x_1(1 - (x_1 + x_2)))\\
+        &\Leftrightarrow \cfrac{\partial}{\partial x_1}(x_1 - x_1^2 - x_1x_2)=0\\
+        &\Leftrightarrow 1-2x_1-x_2=0\\
+        &\Leftrightarrow x_1 = \frac{1-x_2}{2}\\
+    \end{split}
+\end{equation}
+
+Analogously, we get $x_2 = \frac{1-x_1}{2}$ for $BR_2(x_1)$.
+
+Using Figure \ref{fig:2_4_1}, we can see that the Nash Equilibrium for both $x_1$ and $x_2$ is at $\frac{1}{3}$.
+
+\begin{figure}[H]
+        \centering
+        \begin{tikzpicture}[>=latex]
+            \begin{axis}
+                [
+                axis x line=center,
+                axis y line=center,
+                width={\linewidth},
+                ytick={0.2,0.4,...,1},
+                xtick={0.2,0.4,...,1},
+                xlabel={$x_2$},
+                ylabel={$x_1$},
+                xlabel style={below right},
+                ylabel style={above left},
+                xmin=0,
+                xmax=1.1,
+                ymin=0,
+                ymax=1.1,
+                domain=0:1,
+                ]
+                \addplot+[mark=] {(1-x)/2};
+                \addplot+[black, mark=] {-2*x+1};
+                \draw[red, dashed] (axis cs:1/3,1/3) -- (axis cs:1/3,0);
+                \node[red,scale=6] at (axis cs:1/3,1/3) {.};
+                \node[above right, red] at (axis cs:1/3,0) {$BR_1(x_2)=BR_2(x_1)=\cfrac{1}{3}$};
+            \end{axis}
+            \node [anchor=north] at (0,0) {$0$};
+        \end{tikzpicture}
+        \caption{The blue line is the best response for $x_1$ and the black line is the best response for $x_2$. The Nash-Equilibrium is at ($\frac{1}{3}, \frac{1}{3}$).}
+        \label{fig:2_4_1}
+    \end{figure}
+
+For (2) the utility is always $0$ for both players, therefore, the best response is 0 as well. This means that the NE is at (0, 0).
 
 \subsubsection{Does this Nash equilibrium optimise social welfare which is the aggregated utility of all players (i.e. u1(x) + u2(x)?}
 
+No, because both players can pick larger shares (i.e. 0.4) and still receive them (since $0.4 + 0.4 < 1$)
+
 \subsubsection{Can you generalise this result to arbitrary n?}
+We can generalize the result by creating a generalized best response function for $x_i$ (again, we are assuming that $\sum_{j}^{n} x_j < 1$):
+
+\begin{equation}
+    \begin{split}
+        BR_i(x_{-i})&=max(x_i(1 - (\sum_{j}^{n} x_j)))\\
+        &\Leftrightarrow \cfrac{\partial}{\partial x_i}(x_i - x_i \sum_{j}^{n} x_j)=0\\
+        &\Leftrightarrow \cfrac{\partial}{\partial x_i}(x_i - x_i^2 - x_i \sum_{j,j\neq i}^{n} x_j)=0\\
+        &\Leftrightarrow 1-2x_i - \sum_{j,j\neq i}^{n} x_j)=0\\
+        &\Leftrightarrow x_i = \frac{1-\sum_{j,j\neq i}^{n} x_j)}{2}\\
+    \end{split}
+\end{equation}
