@@ -26,7 +26,31 @@ In the following, we denote cheap as $c$ and expensive as $e$
         \par As we can see, $-2,-2$ is the only pure Nash Equilibrium, therefore both Alice and Bob will chose the expensive meal.
 
     \subsubsection{Alice is quite the romantic type and gets an additional \textit{s} Euros worth of pleasure if they happen to pick the same meal (either both cheap or both expensive). Bob, on the other hand, is a bit of a contrarian and gets an additional amount of pleasure (also equivalent to \textbf{s} Euro) when they happen to favour different meal choices. Assume that $ 0 < s \leq 2 $. How does this change the pay-off matrix and the Nash equilibrium (or equilibria) of this game?}
-    \textcolor{red}{TODO MIKA: Neue payoff matrix}The pure equilibria can be determined in relation to $s$, a combination of moved is a Nash equilibrium iff for A $u_{A,s}(m_{A,i}, m_{B,i})>u_{A,s}(m_{A,j}, m_{B,i})$ (Similarly for B).
+        \begin{table}[h]
+            \centering
+            \begin{tabular}{llllll}
+                &                                                   & \multicolumn{2}{c}{B}                                                                                        & & \\
+                &                                                   & \multicolumn{1}{c}{q}                                & \multicolumn{1}{c}{1-q}                               & & \\ \cline{3-4}
+                \multirow{2}{*}{A}       & \multicolumn{1}{r|}{p}   & \multicolumn{1}{l|}{\underbar{2+s}, 2}               & \multicolumn{1}{l|}{-3, \underbar{3+s}}               & & \\ \cline{3-4}
+                                         & \multicolumn{1}{l|}{1-p} & \multicolumn{1}{l|}{\underbar{3}, \underbar{-3+s}}   & \multicolumn{1}{l|}{\underbar{-2+s}, \underbar{-2}} & & \\ \cline{3-4}
+                &                        &                          &                                                      & &
+            \end{tabular}
+
+
+        \end{table}
+        \begin{equation}
+            2p+(1+p)(s-3) = p(3+s)-2(1-p)
+        \end{equation}
+        \begin{equation}
+            q(2+s)-3(1-q) = 3q+(s-2)(1-q)
+        \end{equation}
+        \\
+
+        This results in $p=\cfrac{s-1}{2s}$ and $q=\cfrac{s+1}{2s}$. \\
+        \\
+        $s$ must be greater or equal to 1, otherwise the payoffs are negative. \\
+        \par
+        The pure equilibria can be determined in relation to $s$, a combination of moved is a Nash equilibrium iff for A $u_{A,s}(m_{A,i}, m_{B,i})>u_{A,s}(m_{A,j}, m_{B,i})$ (Similarly for B).
         For the 4 combinations, we get the following function $pick$ for picking move c over move e:
         \begin{alignat*}{3}
             &pick_A(B \text{ picks } c)=&& 2+s>3 \Leftrightarrow s>1 \Rightarrow \text{A picks c if s>1}\\
@@ -35,6 +59,7 @@ In the following, we denote cheap as $c$ and expensive as $e$
             &pick_B(A \text{ picks } e)=&& 2+s>3 \Leftrightarrow s>1 \Rightarrow \text{B picks c if s>1}\\
         \end{alignat*}
         $\Rightarrow$ Both pick cheap for $s>1$, and both will pick Expensive for $s<1$ while for $s=1$
-        \par Mixed Nash:\textcolor{red}{TODO JULIAN: AUFGABE EINFÜGEN}
+        \par Mixed Nash:
+
 
    
