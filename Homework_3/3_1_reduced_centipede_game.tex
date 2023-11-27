@@ -3,6 +3,33 @@
 
 \subsubsection{Use backward induction to predict the (rational) outcome of this game. Does it make sense to you?}
 
-\subsubsection{2. Write the normal form for this game and find all Nash equilibria in pure strategies (PNEs).}
 
-\subsubsection{3. List all subgames and determine which of these PNEs are also subgame-perfect?}
+\begin{figure}[ht]
+    \centering
+    \begin{tikzpicture}
+        \node[circle, black,draw, label={[red]right: 1, 0}] {1}
+            child {node[draw] {1, 0} edge from parent [left, blue] node {S}}
+            child {node[circle, black, draw, label={right: 0, 2}] {2}
+            child {node [draw, black] {0, 2}
+            edge from parent [left, blue] node {S}}
+            child {node [circle, black,draw, label={right: 3, 1}]{1}
+            child {node [draw, black] {3, 1}
+            edge from parent [left, blue] node {S}}
+            child {node [circle, black,draw, label={right: 2, 4}] {2}
+            child {node [draw, black] {2, 4}
+            edge from parent [left, blue] node {S}}
+            child {node [draw, black] {5, 3}
+            edge from parent [right, blue] node {C}}
+            edge from parent [right, blue] node {C}}
+            edge from parent [right, blue] node {C}} 
+            edge from parent [blue] node [right, blue] {C}};
+    \end{tikzpicture}
+\end{figure}
+The rational outcome of this game is 1, 0. Given that the utility of both players increases along
+the game tree, both players could get better pay-offs. If both players would be altruistic instead
+of maximizing their own outcome, they would both go down the tree and would both receive better 
+pay-offs.
+
+\subsubsection{Write the normal form for this game and find all Nash equilibria in pure strategies (PNEs).}
+
+\subsubsection{List all subgames and determine which of these PNEs are also subgame-perfect?}
