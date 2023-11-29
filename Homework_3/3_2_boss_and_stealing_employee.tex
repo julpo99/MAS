@@ -16,56 +16,100 @@
       ]
         \node[circle, black,draw, label={[red]right: 1, 0}] {B}
             child {
-                node[circle, draw, label={[black]right: 0, 1}] {E}
+                node[circle, draw, label={[black]left: 0, 1}] {E}
                 child{
                         node[draw] {1, 0} 
-                        edge from parent [left, blue] node {H}
+                        edge from parent [left, black] node {H}
                     }
                 child {
                     node[circle, draw, label={[black]right: 0, 1}] {B}
                     child{
-                        node[draw] {0, 1}
-                        edge from parent [left, blue] node {I}
+                        node[draw, black] {0, 1}
+                        edge from parent [left, red] node {I}
                     }
                     child{
-                        node[draw] {-1, -1}
-                        edge from parent [right, blue] node {Fi}
+                        node[draw, black] {-1, -1}
+                        edge from parent [right, black] node {Fi}
                     }
-                    edge from parent [right, blue] node {S}
+                    edge from parent [right, red] node {S}
                 }
-                edge from parent [left, blue] node {N}
+                edge from parent [left, black] node {N}
             }
             child {
-                node[circle, black, draw, label={right: 1, 0}] {E}
+                node[circle, black, draw, label={[red]right: 1, 0}] {E}
                 child {
-                    node[circle, draw, label={[black]right: -1, -1}] {B}
+                    node[circle, black, draw, label={[black]left: -1, -1}] {B}
                     child {
                         node [draw] {-1, -1}
-                        edge from parent [left, blue] node {Ft}
+                        edge from parent [left, red] node {Ft}
                     }
                     child {
                         node [draw] {-2, 1}
-                        edge from parent [right, blue] node {F}
+                        edge from parent [right, black] node {F}
                     }
-                    edge from parent [left, blue] node {T}
+                    edge from parent [left, black] node {T}
                 }
                 child {
-                    node [draw] {1, 0}
-                    edge from parent [right, blue] node {Q}
+                    node [draw, black] {1, 0}
+                    edge from parent [right, red] node {Q}
                 }
-                edge from parent [right, blue] node {W}
+                edge from parent [right, red] node {W}
             };
     \end{tikzpicture}
 \end{figure}
-The backwards induction shows, that the rational move for the Boss would be to give a warning
+The backwards induction shows, that the rational move for the Boss would be to give a Warning
 and then for the employee to quit steeling.
+
+
 
 \subsubsection{What are the pure actions for the two players (boss and employee)? Construct the normal
 form matrix.}
 
+
+\begin{table}[h!]
+  \centering
+  \begin{tabular}{|l|l|l|l|l|l|l|l|}
+    \hline
+    & HT                                    & HQ                            & ST   & SQ   \\ \hline
+    NIFt  & \underline{1}, 0                & \underline{1}, 0              & \underline{0}, \underline{1}   & 0, \underline{1}             \\ \hline
+    NIF   & \underline{1}, 0                & \underline{1}, 0              & \underline{0}, \underline{1}   & 0, \underline{1}             \\ \hline
+    NFiFt & \underline{1}, \underline{0}    & \underline{1}, \underline{0}  & -1, -1                         & -1, -1                       \\ \hline
+    NFiF  & \underline{1}, \underline{0}    & \underline{1}, \underline{0}  & -1, -1                         & -1, -1                       \\ \hline
+    WIFt  & -1, -1                          & \underline{1}, \underline{0}  & -1, -1                         & \underline{1}, \underline{0} \\ \hline
+    WIF   & -2, \underline{1}               & \underline{1}, 0              & -2, \underline{1}              & \underline{1}, 0             \\ \hline
+    WFiFt & -1, -1                          & \underline{1}, \underline{0}  & -1, -1                         & \underline{1}, \underline{0} \\ \hline
+    WFiF  & -2, \underline{1}               & \underline{1}, 0              & -2, \underline{1}              & \underline{1}, 0             \\ \hline
+
+
+  \end{tabular}
+  \caption{Normal Form for the Boss and stealing employee game.}
+  \label{lt2}
+\end{table}
+
+
 \subsubsection{Use this matrix to identify all the pure Nash equilibria of the normal form game.}
 
-\subsubsection{Determine the subgame-perfect equilibrium (equilibria?) by eliminating all the Nash equi-
-libria that fail to induce a NE in subgame}
+\begin{table}[h!]
+  \centering
+  \begin{tabular}{|l|l|l|l|l|l|l|l|}
+      \hline
+      & HT                           & HQ                           & ST                           & SQ                           \\ \hline
+      NIFt  & \underline{1}, 0             & \underline{1}, 0             & \fbox{\underline{0}, \underline{1}} & 0, \underline{1}             \\ \hline
+      NIF   & \underline{1}, 0             & \underline{1}, 0             & \fbox{\underline{0}, \underline{1}} & 0, \underline{1}             \\ \hline
+      NFiFt & \fbox{\underline{1}, \underline{0}} & \fbox{\underline{1}, \underline{0}} & -1, -1 & -1,-1 \\ \hline
+      NFiF  & \fbox{\underline{1}, \underline{0}} & \fbox{\underline{1}, \underline{0}} & -1, -1 & -1, -1                       \\ \hline
+      WIFt  & -1, -1                       & \fbox{\underline{1}, \underline{0}} & -1, -1                       & \fbox{\underline{1}, \underline{0}} \\ \hline
+      WIF   & -2, \underline{1}            & \underline{1}, 0             & -2, \underline{1}            & \underline{1}, 0             \\ \hline
+      WFiFt & -1, -1                       & \fbox{\underline{1}, \underline{0}} & -1, -1                       & \fbox{\underline{1}, \underline{0}} \\ \hline
+      WFiF  & -2, \underline{1}            & \underline{1}, 0             & -2, \underline{1}            & \underline{1}, 0             \\ \hline
+
+
+  \end{tabular}
+  \caption{Pure Nash Equilibria of the normal form game.}
+  \label{lt3}
+\end{table}
+
+\subsubsection{Determine the subgame-perfect equilibrium (equilibria?) by eliminating all the Nash equilibria that fail
+to induce a NE in subgame}
 
 \subsubsection{Compare to the solution based on backward induction.}
