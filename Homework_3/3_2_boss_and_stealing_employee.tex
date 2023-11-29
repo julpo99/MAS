@@ -111,5 +111,117 @@ form matrix.}
 
 \subsubsection{Determine the subgame-perfect equilibrium (equilibria?) by eliminating all the Nash equilibria that fail
 to induce a NE in subgame}
+\begin{figure}[ht]
+    \centering
+    \begin{tikzpicture}[
+        grow                    = down,
+        % sibling distance        = 10em,
+        level 1/.style          = {sibling distance=2cm},
+        level distance          = 1.2cm,
+        edge from parent/.style = {draw, edge from parent path={(\tikzparentnode) -- (\tikzchildnode)}},
+        %sloped
+      ]
+        \node[circle, black,draw, label={}] {B}
+                    child{
+                        node[draw, black] {0, 1}
+                        edge from parent [left, black] node {I}
+                    }
+                    child{
+                        node[draw, black] {-1, -1}
+                        edge from parent [right, black] node {Fi}
+                    };
+    \end{tikzpicture}
+    \caption{Subgame 1 with NE (I).}
+\end{figure}
+
+\begin{figure}[ht]
+    \centering
+    \begin{tikzpicture}[
+        grow                    = down,
+        % sibling distance        = 10em,
+        level 1/.style          = {sibling distance=2cm},
+        level distance          = 1.2cm,
+        edge from parent/.style = {draw, edge from parent path={(\tikzparentnode) -- (\tikzchildnode)}},
+        %sloped
+      ]
+        \node[circle, black,draw, label={}] {B}
+                    child{
+                        node[draw, black] {-1, -1}
+                        edge from parent [left, black] node {Ft}
+                    }
+                    child{
+                        node[draw, black] {-2, 1}
+                        edge from parent [right, black] node {F}
+                    };
+    \end{tikzpicture}
+    \caption{Subgame 2 with NE (Ft).}
+\end{figure} 
+
+\begin{figure}[ht]
+    \centering
+    \begin{tikzpicture}[
+        grow                    = down,
+        % sibling distance        = 10em,
+        level 1/.style          = {sibling distance=2cm},
+        level 2/.style          = {sibling distance=2cm},
+        level distance          = 1.2cm,
+        edge from parent/.style = {draw, edge from parent path={(\tikzparentnode) -- (\tikzchildnode)}},
+        %sloped
+      ]
+        \node[circle, draw, label={[black]left:}] {E}
+                child{
+                        node[draw] {1, 0} 
+                        edge from parent [left, black] node {H}
+                    }
+                child {
+                    node[circle, draw, label={[black]right:}] {B}
+                    child{
+                        node[draw, black] {0, 1}
+                        edge from parent [left, black] node {I}
+                    }
+                    child{
+                        node[draw, black] {-1, -1}
+                        edge from parent [right, black] node {Fi}
+                    }
+                    edge from parent [right, black] node {S}
+                };
+    \end{tikzpicture}
+    \caption{Subgame 3 with NE (FtQ).}
+\end{figure}
+
+\begin{figure}[ht]
+    \centering
+    \begin{tikzpicture}[
+        grow                    = down,
+        % sibling distance        = 10em,
+        level 1/.style          = {sibling distance=2cm},
+        level 2/.style          = {sibling distance=2cm},
+        level distance          = 1.2cm,
+        edge from parent/.style = {draw, edge from parent path={(\tikzparentnode) -- (\tikzchildnode)}},
+        %sloped
+      ]
+        \node[circle, black, draw, label={[red]right:}] {E}
+                child {
+                    node[circle, black, draw, label={[black]left:}] {B}
+                    child {
+                        node [draw] {-1, -1}
+                        edge from parent [left, black] node {Ft}
+                    }
+                    child {
+                        node [draw] {-2, 1}
+                        edge from parent [right, black] node {F}
+                    }
+                    edge from parent [left, black] node {T}
+                }
+                child {
+                    node [draw, black] {1, 0}
+                    edge from parent [right, black] node {Q}
+                };
+    \end{tikzpicture}
+    \caption{Subgame 4 with NEs (IS, FiH).}
+\end{figure}
+
+Figures 2-5 show the subgames and mention their NEs. The only subgame-perfect equilibrium is (WIFtSQ), as it is the only one that induces a NE in each subgame.
 
 \subsubsection{Compare to the solution based on backward induction.}
+The solutions are identical. The subgame-perfect equilibrium (WIFtSQ) will result in the Boss picking (W) and the employee then (Q), which is the choice path determined by backward induction.
