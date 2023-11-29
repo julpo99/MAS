@@ -50,9 +50,6 @@ pay-offs.
 
 
 \subsubsection{List all subgames and determine which of these PNEs are also subgame-perfect?}
-Let $M((S_1S_2, S_3S_4))$ denote the set of all pure strategies where the first two characters indicate the
-moves (strategy) of player 1 and the second two of player two. In case of an asterisk (*), the set
-contains all strategy pairs with any character at the position of *. Example: M((*$S, SS))=\{(SS, SS), (CS, SS)\}$
 \begin{figure}[ht]
   \centering
   \begin{subfigure}[b]{0.3\textwidth}
@@ -71,7 +68,7 @@ contains all strategy pairs with any character at the position of *. Example: M(
             edge from parent [right, blue] node {C}}
             edge from parent [right, blue] node {C}};
     \end{tikzpicture}
-    \subcaption*{equilibria: M((**, S*))}
+    \subcaption*{equilibria: (SS, SS), (CS, SC)}
   \end{subfigure}
   \begin{subfigure}[b]{0.3\textwidth}
     \begin{tikzpicture}
@@ -85,7 +82,7 @@ contains all strategy pairs with any character at the position of *. Example: M(
           edge from parent [right, blue] node {C}}
           edge from parent [right, blue] node {C}};
   \end{tikzpicture}
-  \subcaption*{equilibria: M((*S, **))}
+  \subcaption*{equilibria: (SS, SS), (CS, SS), (SS, CS), (CS, CS) (both players have to play S as seconds choice)}
   \end{subfigure}
   \begin{subfigure}[b]{0.3\textwidth}
     \centering
@@ -96,11 +93,8 @@ contains all strategy pairs with any character at the position of *. Example: M(
           child {node [draw, black] {5, 3}
           edge from parent [right, blue] node {C}};
     \end{tikzpicture}
-    \subcaption*{equilibria: M((**, *S))}
+    \subcaption*{equilibria: (**, *S)}
   \end{subfigure} 
 \end{figure}
 \newpage
-The equilibria that are present in all subgames are M((**, S*))$\cap$M((*S, **))$\cap$M((**, *S))=M((*S, SS)).
-If we now look at the equilibria we determined before, we can see that only $(SS, SS)$ is part of
-this set. Therefore, there exists a single subgame-perfect game, which is when both players only
-play S.
+The only equilibrium present in all sub-games and the game itself is (SS, SS).
