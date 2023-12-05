@@ -1,4 +1,4 @@
-\begin{table}[h]
+\begin{table}[H]
     \centering
     \begin{tabular}{|c|c|c|c|c|}
         \cline{2-5}
@@ -15,63 +15,78 @@
     \label{tab: optimal_action}
 \end{table}
 
-1000000 iterations were performed.
+100 and then 1000000 iterations were performed, to check the convergence of the empirical distribution.
+
 The results are shown in table~\ref{tab: player_1_n_matrix}, table~\ref{tab: player_2_n_matrix}, table~\ref{tab: player_1_mixed_strategy} and table~\ref{tab: player_2_mixed_strategy}.
-\begin{table}[h]
+\begin{table}[H]
     \centering
-    \begin{tabular}{|c|c|c|}
+    \begin{tabular}{|c|c|c|c|}
         \hline
-        \textbf{A(a)} & \textbf{B(b)} & \textbf{C(c)} \\
+        \textbf{Iterations} & \textbf{A(a)} & \textbf{B(b)} & \textbf{C(c)} \\
         \hline
-        1 & 500556 & 499446 \\
+        100 & 1 & 47 & 55 \\
+        \hline
+        1000000 & 1 & 500556 & 499446 \\
         \hline
     \end{tabular}
     \caption{$N_1$ matrix (number of times each action was played).}
     \label{tab: player_1_n_matrix}
 \end{table}
 
-\begin{table}[h]
+\begin{table}[H]
     \centering
-    \begin{tabular}{|c|c|c|c|c|}
+    \begin{tabular}{|c|c|c|c|c|c|}
         \hline
-        \textbf{W(w)} & \textbf{X(x)} & \textbf{Y(y)} & \textbf{Z(z)} \\
+        \textbf{Iterations}& \textbf{W(w)} & \textbf{X(x)} & \textbf{Y(y)} & \textbf{Z(z)} \\
         \hline
-        1 & 600020 & 399982 & 1 \\
+        100 & 1 & 64 & 38 & 1 \\
+        \hline
+        1000000 & 1 & 600020 & 399982 & 1 \\
         \hline
     \end{tabular}
     \caption{$N_2$ matrix (number of times each action was played).}
     \label{tab: player_2_n_matrix}
 \end{table}
 
-\begin{table}[h!]
+\begin{table}[H]
     \centering
-    \begin{tabular}{|c|c|c|}
+    \begin{tabular}{|c|c|c|c|}
         \hline
-        \textbf{A(a)} & \textbf{B(b)} & \textbf{C(c)} \\
+        \textbf{Iterations}& \textbf{A(a)} & \textbf{B(b)} & \textbf{C(c)} \\
         \hline
-        \approx0.000 & \approx0.500 & \approx0.499 \\
+        100 & \approx0.009 & \approx0.456 & \approx0.534 \\
+        \hline
+        1000000 & \approx0.000 & \approx0.500 & \approx0.499 \\
         \hline
     \end{tabular}
     \caption{$\hat{\pi}_1$ matrix (mixed strategy).}
     \label{tab: player_1_mixed_strategy}
 \end{table}
 
-\begin{table}[h!]
+\begin{table}[H]
     \centering
-    \begin{tabular}{|c|c|c|c|c|}
+    \begin{tabular}{|c|c|c|c|c|c|}
         \hline
-        \textbf{W(w)} & \textbf{X(x)} & \textbf{Y(y)} & \textbf{Z(z)} \\
+        \textbf{Iterations} & \textbf{W(w)} & \textbf{X(x)} & \textbf{Y(y)} & \textbf{Z(z)} \\
         \hline
-        \approx0.000 & \approx0.600 & \approx0.400 & \approx0.000 \\
+        100 & \approx0.009 & \approx0.615 & \approx0.365 & \approx0.009 \\
+        \hline
+        1000000 & \approx0.000 & \approx0.600 & \approx0.400 & \approx0.000 \\
         \hline
     \end{tabular}
     \caption{$\hat{\pi}_2$ matrix (mixed strategy).}
     \label{tab: player_2_mixed_strategy}
 \end{table}
-
-
-As we can see from table~\ref{tab: player_1_mixed_strategy}, the probability of playing action $B$ and action $C$ is
-almost
-the same, these are both really close to 0.5, to this we can understand that player 1 is changing his strategy
-at each iteration.
-The Fictitious Play is therefore not converging, and is not able to find a mixed Nash equilibrium.
+As we can see from table~\ref{tab: player_1_mixed_strategy} and table~\ref{tab: player_2_mixed_strategy}, the
+empirical distribution converges, and we know that if this happens, the limit distribution coincides with the mixed
+Nash strategies.
+We can finally assign the following probabilities to the actions:
+\begin{align*}
+    \pi_1(A) &= 0 \\
+    \pi_1(B) &= 0.5 \\
+    \pi_1(C) &= 0.5 \\
+    \pi_2(W) &= 0 \\
+    \pi_2(X) &= 0.6 \\
+    \pi_2(Y) &= 0.4 \\
+    \pi_2(Z) &= 0
+\end{align*}
