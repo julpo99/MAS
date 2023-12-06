@@ -1,1 +1,10 @@
 \subsection{Quantifying the significance of an observed correlation}
+Using MC to decide whether the correlation is significant:
+\begin{enumerate}
+    \item Generate a large number (100000) of samples where the parameters A and S are randomly assigned.
+    \item For each random sample, calculate the correlation coefficient between the parameters A and the score S.
+    \item Count the number of times the randomly generated correlation coefficients are greater than or equal to the observed correlation coefficient (0.3).
+    \item Compute the simulated p-value by computing the proportion of random samples where the correlation coefficient is at least as big as the observed correlation coefficient.
+\end{enumerate}
+
+We get a simulated p-value of 0.39302, which generally is generally considered not statistically significant. Therefore, the is correlation is also seen as not statistically significant.
