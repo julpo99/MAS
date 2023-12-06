@@ -4,35 +4,41 @@
 We randomly generated to means using a uniform random distribution,
 where for each experiment the means where generated again.
 To get the Lai-Robbins lower bound, we reuse the formulation of the KL-Divergence from task
-5.4.3 . In the following plots, the experimental $l(t)$ curves can be seen together with the 
+5.4.3 . In the following Figure~\ref{fig:plots}, the experimental $l(t)$ curves can be seen together with the 
 theoretical lower bound found by Lai-Robbins.
 \begin{figure}[ht]
     \centering
-    \begin{subfigure}{0.45}
+    \begin{subfigure}{0.45\textwidth}
         \centering
-        \includegraphics[scale=0.5]{figures/e02.png}
+        \includegraphics[scale=0.45]{figures/e02.png}
+        \caption{l(t) for the $\epsilon$-greedy strategy with $\epsilon=0.2$}
     \end{subfigure}  
-    \begin{subfigure}{0.45}
+    \begin{subfigure}{0.45\textwidth}
         \centering
-        \includegraphics[scale=0.5]{figures/e05.png}
+        \includegraphics[scale=0.45]{figures/e05.png}
+        \caption{l(t) for the $\epsilon$-greedy strategy with $\epsilon=0.5$}
     \end{subfigure} 
-    \begin{subfigure}{0.45}
+    \begin{subfigure}{0.45\textwidth}
         \centering
-        \includegraphics[scale=0.5]{figures/e07.png}
+        \includegraphics[scale=0.45]{figures/e07.png}
+        \caption{l(t) for the $\epsilon$-greedy strategy with $\epsilon=0.7$}
     \end{subfigure} 
-    \begin{subfigure}{0.45}
+    \begin{subfigure}{0.45\textwidth}
         \centering
-        \includegraphics[scale=0.5]{figures/ucb.png}
-    \end{subfigure}   
+        \includegraphics[scale=0.45]{figures/ucb.png}
+        \caption{l(t) for the UCB strategy with c=2}
+    \end{subfigure}
+    \caption{l(t) plots for different strategies}
+    \label{fig:plots}
 \end{figure}
 
 \paragraph{2.}
 Below we listed our observed correct decisions for the different strategies
 \begin{itemize}
     \item UCB method: Correct: 0.7232\%
-    \item $\epsilon$-greedy ($\epsilon=$): Correct: \%
-    \item $\epsilon$-greedy ($\epsilon=$): Correct: \%
-    \item $\epsilon$-greedy ($\epsilon=$): Correct: \%
+    \item $\epsilon$-greedy ($\epsilon=0.7$): Correct: 0.6432\%
+    \item $\epsilon$-greedy ($\epsilon=0.5$): Correct: 0.4432\%
+    \item $\epsilon$-greedy ($\epsilon=0.2$): Correct: 0.5679\%
 \end{itemize}
 If the c is smaller, the strategy explores less since the optimistic bounds
 get smaller.
