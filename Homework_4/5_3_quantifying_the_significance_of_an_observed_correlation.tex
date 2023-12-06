@@ -1,10 +1,18 @@
 \subsection{Quantifying the significance of an observed correlation}
-Using MC to decide whether the correlation is significant:
+  To decide whether the correlation is significant; we can use Monte Carlo simulation to compute a simulated p-value
+over a large number of random samples.
+The steps are as follows:
+
 \begin{enumerate}
-    \item Generate a large number (100000) of samples where the parameters A and S are randomly assigned.
-    \item For each random sample, calculate the correlation coefficient between the parameters A and the score S.
-    \item Count the number of times the randomly generated correlation coefficients are greater than or equal to the observed correlation coefficient (0.3).
-    \item Compute the simulated p-value by computing the proportion of random samples where the correlation coefficient is at least as big as the observed correlation coefficient.
+    \item We have generated a large number (1000000) of samples where the parameters A and S are randomly assigned.
+    \item For each random sample, we calculate the correlation coefficient between the parameters A and the score S
+    by using the \texttt{corrcoef} function from the \texttt{numpy} library, which corresponds to the Pearson
+    correlation coefficient.
+    \item We count the number of times the randomly generated correlation coefficients are greater than or equal to the
+    observed correlation coefficient (0.3).
+    \item Finally, we compute the simulated p-value by computing the proportion of random samples where the correlation
+    coefficient is at least as big as the observed correlation coefficient.
 \end{enumerate}
 
-We get a simulated p-value of 0.39302, which generally is generally considered not statistically significant. Therefore, the is correlation is also seen as not statistically significant.
+We get a simulated p-value of 0.396591, which is greater than the significance level of 0.05.
+Therefore, the correlation is not significant, and we don't know whether we should increase the hyperparameter A or not.
