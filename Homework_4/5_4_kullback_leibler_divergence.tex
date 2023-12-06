@@ -1,21 +1,31 @@
 \subsection{Kullback-Leibler divergence}
+
 \subsubsection{3}
-Given f and g as normal distributions, the PDFs are the following:
+
+Given $f$ and $g$ as normal distributions, the PDFs are the following:
 \begin{itemize}
     \item $f(x) = \frac{1}{\sigma \sqrt{2\pi}} e^{-\frac{1}{2}(\frac{x - \mu}{\sigma})^2}$
     \item $g(x) = \frac{1}{\tau \sqrt{2\pi}} e^{-\frac{1}{2}(\frac{x - \nu}{\tau})^2}$
 \end{itemize}
 
-We can now substitute these PDFs into the definition of KL divergence and perform the integration. We get: \\
+We can now substitute these PDFs into the definition of KL divergence and after performing the integration we get: \\
 \begin{center}
-    $KL(\mu, \sigma, \nu, \tau) = log(\frac{\tau}{\sigma}) + \frac{\sigma^2 +  (\mu - \nu)^2}{2\tau^2} - \frac{1}{2}$
+    $KL(\mu, \sigma, \nu, \tau) = \log(\frac{\tau}{\sigma}) + \frac{\sigma^2 +  (\mu - \nu)^2}{2\tau^2} - \frac{1}{2}$
 \end{center}
+The formula above is showing that the KL divergence is not symmetric, because the order of the parameters would
+change the result. We can therefore conclude that $KL(f \,||\, g) \neq KL(g \,||\, f)$.
+
+
+This explains why the KL is called a \textbf{divergence} rather than a \textbf{distance}.
 
 \subsubsection{4}
-To achieve an accurate result for the MC simulation, we choose a sample size of 100000. We then pick the values for the normal distributions as follows: $\mu=1, \sigma=1, \nu=2, \tau=3$. Computing the results gives us:
+To achieve an accurate result for the MC simulation, we choose a sample size of 1000000.
+We then pick the values for
+the normal distributions as follows: $\mu=1, \sigma=1, \nu=2, \tau=3$.
+Computing the results gives us:
 \begin{itemize}
     \item theoretical result: 0.7097233997792209
-    \item estimated result: 0.7089208434002601
+    \item estimated result: 0.7100029885979247
 \end{itemize}
 
 Given the close alignment between the results, it is reasonable to infer that the theoretical result is correct.
