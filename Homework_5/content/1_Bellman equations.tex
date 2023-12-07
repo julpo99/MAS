@@ -1,9 +1,31 @@
 \section{Bellman equations}
+
+\subsection{Deterministic policy $\pi$: each state is mapped to a single action (say $a_s$);}
+Given the two Bellman equations:
 \begin{align*}
-    v_\pi(s)&=\sum\limits_{a_s}\pi(a_s|s)\sum\limits_{s'}p(s'|s,a_s)\left[r(s,a_s,s')+\gamma v_\pi(s')\right]\\
-    &=1*\sum\limits_{s'}p(s'|s,a_s)\left[r(s,a,s')+\gamma v_\pi(s')\right]
+    v_\pi(s)&=\sum\limits_{a}\pi(a|s)\sum\limits_{s'}p(s'|s,a)\left[r(s,a,s')+\gamma v_\pi(s')\right]\\
+    q(s, a)&=\sum\limits_{s'}p(s'|s,a)\left[r(s, a, s')+\gamma\sum\limits_{a'}\pi(a'|s')q_\pi(s',a')\right]\\
+\end{align*}
+
+
+In the case of a deterministic policy $\pi$ in which each state is mapped to a single state, the first equation can be
+simplified to the case in which \boldsymbol{$a = a_s$} because in the other cases it would be equal to zero because it
+is a sum of zeros:
+
+\begin{align*}
+    v_\pi(s)=1*\sum\limits_{s'}p(s'|s,a_s)\left[r(s,a_s,s')+\gamma v_\pi(s')\right]
 \end{align*}
 \begin{align*}
-    q(s, a_s)&=\sum\limits_{s'}p(s'|s,a_s)\left[r(s, a_s, s')+\gamma\sum\limits_{a'}\pi(a'|s')q_\pi(s',a')\right]\\
-    &=\sum\limits_{s'}p(s'|s,a_s)\left[r(s, a_s, s')+\gamma * 1 * q_\pi(s',a_{s'}')\right]
+    q(s, a_s)=\sum\limits_{s'}p(s'|s,a_s)\left[r(s, a_s, s')+\gamma * 1 * q_\pi(s',a_{s}')\right]
+\end{align*}
+
+\subsection{Combination of deterministic policy and deterministic transition $p(s^{'}|s,a)$. The latter is characterized
+by
+the fact that applying an action $a$ to a state $s$ results each time in thesame successor state $s_a$;}
+If we combine the deterministic policy and the deterministic transition, the Bellman equations can be simplified as follows:
+\begin{align*}
+    v_\pi(s)=1*1*\left[r(s,a_s,s_a)+\gamma v_\pi(s_a)\right]
+\end{align*}
+\begin{align*}
+    q(s, a_s)=1*\left[r(s, a, s_a)+\gamma * 1 * q_\pi(s_a,a_{s_a}')\right]
 \end{align*}
