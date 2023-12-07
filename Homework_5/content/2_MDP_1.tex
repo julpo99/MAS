@@ -1,1 +1,60 @@
 \section{MDP 1}
+In this task we have two possible actions for each state, which is to go clockwise or couter-clockwise.
+We name clockwise as c and couter-clockwise as cc $\Rightarrow A=\{c, cc\}$. Furthermore, the total number of
+states is noted as $N$:
+\begin{enumerate}
+    \item For every node the value function is 10, since there is no discount. Similarly, the q-values are always 10 because there is no discount.
+    \item An optimal policy would for example be $\pi(c|s)=1, \pi(cc|s)=0$ for any state $s$ except the absorbing state of course. This is an optimal policy,
+    because any state will reach the absorbing state, and will therefore, have a eventual (expected) reward of 10, which is the highest achievable reward. The optimal
+    policy is not unique! A second policy, $\pi(c|s)=0, \pi(cc|s)=1$, would also give the same expected rewards. Obvioulsy, there are a lot more possible
+    optimal policies. $q*=10$, since we would always reach the absorbing state, without penalty, no matter what next state we chose.
+    \item The policy would change, since now the shortest path to the absorbing state has to be taken for the optimal policy. Due to having odd numbers,
+    this would also mean that there exists an unique optimal policy, since every state would only have a single shortest path. The optimal policy can be seen in equation
+    ~\ref{eqn:policy_c} and~\ref{eqn:policy_cc}:
+    \begin{equation}
+        \pi(c, s_n)=\left\{
+            \begin{array}{ll}
+                0\mbox{ if }n<\cfrac{N}{2}\\
+                1\mbox{ if }n>\cfrac{N}{2}
+            \end{array}
+        \right.
+        \label{eqn:policy_c}
+    \end{equation}
+    \begin{equation}
+        \pi(cc, s_n)=\left\{
+            \begin{array}{ll}
+                1\mbox{ if }n<\cfrac{N}{2}\\
+                0\mbox{ if }n>\cfrac{N}{2}
+            \end{array}
+        \right.
+        \label{eqn:policy_cc}
+    \end{equation}
+    Obviously, the value function would also depend on the distance to state 0:
+    \begin{align}
+        v^*(s_n)=
+        \left\{
+            \begin{array}{ll}
+                10-n &\mbox{ if }n<\cfrac{N}{2}\\
+                10-(N-n) &\mbox{ if }n>\cfrac{N}{2}
+            \end{array}
+        \right.
+    \end{align}
+    Lastly, the $q*$ value would also depend on the distance to state 0:
+    \begin{align}
+        q^*(s_n, a)=
+        \left\{
+            \begin{array}{llll}
+                10-n+1 &\mbox{ if }n<\frac{N}{2}\mbox{ and } a=cc\\
+                10-n-1 &\mbox{ if }n<\frac{N}{2}\mbox{ and } a=c\\
+                10-(N-n)-1 &\mbox{ if }n>\frac{N}{2}\mbox{ and } a=cc\\
+                10-(N-n)+1 &\mbox{ if }n>\frac{N}{2}\mbox{ and } a=c
+            \end{array}
+        \right.
+    \end{align}
+    \item This would change 2 in a similar way like giving negative rewards, since $\gamma$ would reduce the 
+    value of the next state for each state. Instead of reducing the value function of a state s by the distance to state 0 linearly (e.g. by one every step),
+    the value function would be reduced by $\gamma^n$ since $\gamma$ would be multiplied with the final reward for
+    each step we have to take to the absorbing state.
+    \item This would change it similarly to 3, since we have a negative reward for moving again, \textbf{but}, there would not be an unique optimal policy anymore, since there would be at least two strategies (going only left at $s_{N/2}$ or going only right). Actually, the policy
+    at state $s_{N/2}$ can be arbitrary, while still being optimal (if it is optimal for the other states).
+\end{enumerate}
