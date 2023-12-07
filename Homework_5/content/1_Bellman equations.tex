@@ -1,1 +1,9 @@
 \section{Bellman equations}
+\begin{align*}
+    v_\pi(s)&=\sum\limits_{a_s}\pi(a_s|s)\sum\limits_{s'}p(s'|s,a_s)\left[r(s,a_s,s')+\gamma v_\pi(s')\right]\\
+    &=1*\sum\limits_{s'}p(s'|s,a_s)\left[r(s,a,s')+\gamma v_\pi(s')\right]
+\end{align*}
+\begin{align*}
+    q(s, a_s)&=\sum\limits_{s'}p(s'|s,a_s)\left[r(s, a_s, s')+\gamma\sum\limits_{a'}\pi(a'|s')q_\pi(s',a')\right]\\
+    &=\sum\limits_{s'}p(s'|s,a_s)\left[r(s, a_s, s')+\gamma * 1 * q_\pi(s',a_{s'}')\right]
+\end{align*}
