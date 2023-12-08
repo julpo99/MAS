@@ -1,1 +1,171 @@
 \section{MDP 2}
+\paragraph{1.}
+We use the formula given in the lecture $v_\pi(s)=\sum\limits_a\pi(a|s)\sum\limits_{s'}p(s'|s,a)\left[r(s, a, s')+\gamma v_\pi(s')\right]$
+to calculate the value function for each state:
+
+\begin{align}
+    \begin{split}
+        v_\pi(1)&=\cfrac{1}{4}\left[0+\gamma 0\right]+\cfrac{3}{4}\left[-2+\gamma v_\pi(2)\right]\\
+                &=-\cfrac{3}{2}+\cfrac{3}{4}v_\pi(2)
+    \end{split}
+    \label{eqn:v_1}
+\end{align}
+\begin{align}
+    \begin{split}
+        v_\pi(2)&=\cfrac{1}{2}\left[-2+\gamma v_\pi(1)\right]+\cfrac{1}{2}\left[-2+v_\pi(3)\right]\\
+                &=-1+\cfrac{1}{2}v_\pi(1)-1+\cfrac{1}{2}v_\pi(3)   
+    \end{split}
+    \label{eqn:v_2}
+\end{align}
+\begin{align}
+    \begin{split}
+        v_\pi(3)&=\cfrac{3}{4}\left[-2+v_\pi(2)\right] + \cfrac{1}{4}\left[20+\gamma*0\right]\\
+            &=-\cfrac{3}{2}+\cfrac{3}{4}v_\pi(2)+5
+    \end{split}
+    \label{eqn:v_3}
+\end{align}
+Given the three equations~\ref{eqn:v_1},~\ref{eqn:v_2}.~\ref{eqn:v_3},
+we can solve the equation system and get the following values:
+\begin{itemize}
+    \item $v_\pi(1)=-4,5$
+    \item $v_\pi(2)=-4$
+    \item $v_\pi(3)=0.5$
+\end{itemize}
+
+\paragraph*{2.}
+We use the back-up functions for the q-value:
+\begin{itemize}
+    \item $q_\pi(2, R)=-2+0.5=-1.5$
+    \item $q_\pi(3, L)=-2-4=-6$
+\end{itemize}
+
+\paragraph*{3.}
+\begin{align}
+    \begin{split}
+        t(1), v^*&=\max\limits_a\left(
+        \begin{bmatrix}
+            0 & 0 \\
+            0 & -2\\
+            -2 & -2\\
+            -2 & 20\\
+            0 & 0\\
+        \end{bmatrix}+
+        \begin{bmatrix}
+            0 & 0\\
+            0 & 0\\
+            0 & 0\\
+            0 & 0\\
+            0 & 0
+        \end{bmatrix}
+        \right)=
+        \begin{bmatrix}
+            0\\
+            0\\
+            -2\\
+            20\\
+            0
+        \end{bmatrix}\\
+        t(2), v^*&=\max\limits_a\left(
+        \begin{bmatrix}
+            0 & 0 \\
+            0 & -2\\
+            -2 & -2\\
+            -2 & 20\\
+            0 & 0\\
+        \end{bmatrix}+
+        \begin{bmatrix}
+            0 & 0\\
+            0 & -2\\
+            0 & 20\\
+            -2 & 0\\
+            0 & 0
+        \end{bmatrix}
+        \right)=
+        \begin{bmatrix}
+            0\\
+            0\\
+            18\\
+            20\\
+            0
+        \end{bmatrix}\\
+    t(3) , v^*&=\max\limits_a\left(
+        \begin{bmatrix}
+            0 & 0 \\
+            0 & -2\\
+            -2 & -2\\
+            -2 & 20\\
+            0 & 0\\
+        \end{bmatrix}+
+        \begin{bmatrix}
+            0 & 0\\
+            0 & 18\\
+            0 & 20\\
+            18 & 0\\
+            0 & 0
+        \end{bmatrix}
+        \right)=
+        \begin{bmatrix}
+            0\\
+            16\\
+            18\\
+            20\\
+            0
+        \end{bmatrix}\\
+        t(4), v^*&=\max\limits_a\left(
+        \begin{bmatrix}
+            0 & 0 \\
+            0 & -2\\
+            -2 & -2\\
+            -2 & 20\\
+            0 & 0\\
+        \end{bmatrix}+
+        \begin{bmatrix}
+            0 & 0\\
+            0 & 18\\
+            16 & 20\\
+            18 & 0\\
+            0 & 0
+        \end{bmatrix}
+        \right)=
+        \begin{bmatrix}
+            0\\
+            16\\
+            18\\
+            20\\
+            0
+        \end{bmatrix}
+    \end{split}
+\end{align}
+\begin{equation}
+    \Rightarrow q*=\left(
+        \begin{bmatrix}
+            0 & 0 \\
+            0 & -2\\
+            -2 & -2\\
+            -2 & 20\\
+            0 & 0\\
+        \end{bmatrix}+
+        \begin{bmatrix}
+            0 & 0\\
+            0 & 18\\
+            16 & 20\\
+            18 & 0\\
+            0 & 0
+        \end{bmatrix}
+        \right)=
+        \begin{bmatrix}
+            0 & 0\\
+            0 & 16\\
+            14 & 18\\
+            16 & 20\\
+            0 & 0
+        \end{bmatrix}
+\end{equation}
+From $q^*$ we can see, that there is a unique policy, since there is a unique
+maximum value for the successors of each state. The optimal policy is determined by
+taking the action leading to the biggest $q*$ value:
+\begin{itemize}
+    \item $\pi(1|L)=0, \pi(1|R)=1$
+    \item $\pi(2|L)=0, \pi(2|R)=1$
+    \item $\pi(3|L)=0, \pi(3|R)=1$
+\end{itemize}
