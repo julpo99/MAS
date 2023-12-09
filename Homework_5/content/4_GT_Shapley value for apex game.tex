@@ -1,1 +1,28 @@
 \section{GT: Shapley value for apex game (25\%)}
+Let $v$ be defined as:
+\begin{equation*}
+    v(S)=\left\{\begin{array}{lll}
+        1\mbox{ if } (1\in S\mbox{ and } \#S\geq 2)\mbox{ or } (2, 3, 4, 5\in S)\\
+        0\mbox{ otherwise }
+    \end{array}
+    \right.
+\end{equation*}
+The Shapley values for the small players and the big player can be seen in equation~\ref{eqn:Shapley}.
+\begin{align}
+    \begin{split}
+        \varphi_{i\neq 1}(\{1, 2, 3, 4, 5\}, v)&=\cfrac{1}{5}\left(
+            \binom{4}{0}^{-1}*0 + \binom{4}{1}^{-1}*1 + \binom{4}{2}^{-1}*0 + 
+            \binom{4}{3}^{-1}*1 + \binom{4}{4}^{-1}*0
+        \right)\\
+        &=\cfrac{2}{20}\\
+        \varphi_{1}(\{1, 2, 3, 4, 5\}, v)&=\cfrac{1}{5}\left(
+            \binom{4}{0}^{-1}*0 + \binom{4}{1}^{-1}*4 + \binom{4}{2}^{-1}*6 + 
+            \binom{4}{3}^{-1}*4 + \binom{4}{4}^{-1}*0
+        \right)\\
+        &=\cfrac{3}{5}
+    \end{split}
+    \label{eqn:Shapley}
+\end{align}
+Since the small players are interchangeable, the symmetry property holds, and we calculate a
+single Shapley-value for all small players, where the value is $\cfrac{2}{20}=0.1$. For the big
+player, the Shapley-value is $\cfrac{3}{5}=0.6$ (as calculated in equation~\ref{eqn:Shapley}).
