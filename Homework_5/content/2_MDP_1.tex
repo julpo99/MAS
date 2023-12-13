@@ -14,7 +14,7 @@ states is noted as $N$:
     \begin{equation}
         \pi(c, s_n)=\left\{
             \begin{array}{ll}
-                0\mbox{ if }n<\cfrac{N}{2}\\
+                0\mbox{ if }n\leq\cfrac{N}{2}\\
                 1\mbox{ if }n>\cfrac{N}{2}
             \end{array}
         \right.
@@ -23,7 +23,7 @@ states is noted as $N$:
     \begin{equation}
         \pi(cc, s_n)=\left\{
             \begin{array}{ll}
-                1\mbox{ if }n<\cfrac{N}{2}\\
+                1\mbox{ if }n\leq\cfrac{N}{2}\\
                 0\mbox{ if }n>\cfrac{N}{2}
             \end{array}
         \right.
@@ -34,7 +34,7 @@ states is noted as $N$:
         v^*(s_n)=
         \left\{
             \begin{array}{ll}
-                10-n &\mbox{ if }n<\cfrac{N}{2}\\
+                10-n &\mbox{ if }n\leq\cfrac{N}{2}\\
                 10-(N-n) &\mbox{ if }n>\cfrac{N}{2}
             \end{array}
         \right.
@@ -44,10 +44,10 @@ states is noted as $N$:
         q^*(s_n, a)=
         \left\{
             \begin{array}{llll}
-                10-n+1 &\mbox{ if }n<\frac{N}{2}\mbox{ and } a=cc\\
-                10-n-1 &\mbox{ if }n<\frac{N}{2}\mbox{ and } a=c\\
+                10-n &\mbox{ if }n\leq\frac{N}{2}\mbox{ and } a=cc\\
+                10-n-1 &\mbox{ if }n\leq\frac{N}{2}\mbox{ and } a=c\\
                 10-(N-n)-1 &\mbox{ if }n>\frac{N}{2}\mbox{ and } a=cc\\
-                10-(N-n)+1 &\mbox{ if }n>\frac{N}{2}\mbox{ and } a=c
+                10-(N-n) &\mbox{ if }n>\frac{N}{2}\mbox{ and } a=c
             \end{array}
         \right.
     \end{align}
